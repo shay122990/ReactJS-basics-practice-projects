@@ -1,0 +1,21 @@
+import img1 from "../assets/project-images/img1.jpg";
+export const PROJECTS = [
+  {
+    id: 1,
+    slug: "counter-click-tracker",
+    title: "Counter & Click Tracker",
+    category: "Basics",
+    learn: "JSX, components, props, useState, events",
+    skills: "state management, event handling",
+    img: img1,
+  },
+  {
+    id: 2,
+    slug: "todo-app",
+    title: "Todo App",
+    category: "Core Fundamentals",
+    learn: "CRUD with state, lists, keys, conditional rendering",
+    skills: "arrays of objects, controlled inputs",
+    img: "https://via.placeholder.com/640x360?text=Todo",
+  },
+];

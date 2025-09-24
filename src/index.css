@@ -33,6 +33,9 @@ body {
   max-width: 1120px;
   margin: 0 auto;
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .header {
   display: grid;
@@ -103,4 +106,22 @@ body {
   font-size: 13px;
   color: var(--muted);
   line-height: 1.45;
+}
+.panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-items: center;
+  align-items: center;
+  gap: 20px;
+}
+.box {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+@media (min-width: 375px) {
+  .card {
+    width: 93%;
+  }
 }

@@ -1,26 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-
-const PROJECTS = [
-  {
-    id: 1,
-    slug: "counter-click-tracker",
-    title: "Counter & Click Tracker",
-    category: "Basics",
-    learn: "JSX, components, props, useState, events",
-    skills: "state management, event handling",
-    img: "https://via.placeholder.com/640x360?text=Counter",
-  },
-  {
-    id: 2,
-    slug: "todo-app",
-    title: "Todo App",
-    category: "Core Fundamentals",
-    learn: "CRUD with state, lists, keys, conditional rendering",
-    skills: "arrays of objects, controlled inputs",
-    img: "https://via.placeholder.com/640x360?text=Todo",
-  },
-];
+import { PROJECTS } from "../data/projects";
 
 export default function Home() {
   const [q, setQ] = useState("");

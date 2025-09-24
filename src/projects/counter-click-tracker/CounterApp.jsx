@@ -1,14 +1,26 @@
 import { useState } from "react";
-// import "./counter.css";
 
 export default function CounterApp() {
-  const [n, setN] = useState(0);
+  const [count, setCount] = useState(0);
+
+  const increaseCount = () => {
+    setCount((prev) => prev + 1);
+  };
+  const decreaseCount = () => {
+    setCount((prev) => prev - 1);
+  };
+  const resetCount = () => {
+    setCount(0);
+  };
   return (
     <div className="panel">
-      <button onClick={() => setN(n - 1)}>−</button>
-      <span className="value">{n}</span>
-      <button onClick={() => setN(n + 1)}>+</button>
-      <button onClick={() => setN(0)}>Reset</button>
+      <h1>Counter App</h1>
+      <div className="box">
+        <button onClick={decreaseCount}>-</button>
+        {count}
+        <button onClick={increaseCount}>+</button>
+      </div>
+      <button onClick={resetCount}>Reset</button>
     </div>
   );
 }
