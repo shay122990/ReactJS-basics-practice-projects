@@ -16,11 +16,17 @@ export default function CounterApp() {
     <div className="panel">
       <h1>Counter App</h1>
       <div className="box">
-        <button onClick={decreaseCount}>-</button>
+        <button onClick={decreaseCount} className="smallBtn">
+          -
+        </button>
         {count}
-        <button onClick={increaseCount}>+</button>
+        <button onClick={increaseCount} className="smallBtn">
+          +
+        </button>
       </div>
-      <button onClick={resetCount}>Reset</button>
+      <button onClick={resetCount} className="btn">
+        Reset
+      </button>
     </div>
   );
 }

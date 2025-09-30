@@ -18,4 +18,13 @@ export const PROJECTS = [
     skills: "arrays of objects, controlled inputs",
     img: "https://via.placeholder.com/640x360?text=Todo",
   },
+  {
+    id: 3,
+    slug: "get-advice",
+    title: "Get Advice",
+    category: "API fetching basics",
+    learn: "How to fetch data from API",
+    skills: "async await",
+    img: "https://via.placeholder.com/640x360?text=Todo",
+  },
 ];

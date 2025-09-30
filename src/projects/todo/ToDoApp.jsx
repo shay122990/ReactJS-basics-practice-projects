@@ -20,8 +20,11 @@ export default function App() {
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
+        className="input"
       />
-      <button onClick={addTask}>Add Task</button>
+      <button onClick={addTask} className="btn">
+        Add Task
+      </button>
       <ul>
         {list.map((item, index) => (
           <li key={index}>

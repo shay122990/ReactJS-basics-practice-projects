@@ -6,6 +6,7 @@
   --muted: #9aa0aa;
   --border: #1f2330;
   --ring: #2b3245;
+  --accent: #8638f3;
 }
 
 * {
@@ -114,11 +115,28 @@ body {
   justify-items: center;
   align-items: center;
   gap: 20px;
+  padding: 40px;
+  text-align: center;
 }
 .box {
   display: flex;
   flex-direction: row;
   gap: 10px;
+}
+.smallBtn {
+  border: var(--accent) 1px solid;
+  border-radius: 3px;
+}
+.btn {
+  width: 20%;
+  padding: 12px;
+  border-radius: 10px;
+  border: var(--text) 1px solid;
+  background-color: var(--bg);
+  text-transform: uppercase;
+}
+.btn:hover {
+  border: var(--accent) 1px solid;
 }
 @media (min-width: 375px) {
   .card {

@@ -6,6 +6,7 @@ const registry = {
     import("../projects/counter-click-tracker/CounterApp.jsx")
   ),
   "todo-app": lazy(() => import("../projects/todo/ToDoApp.jsx")),
+  "get-advice": lazy(() => import("../projects/get-advice/GetAdvice.jsx")),
 };
 
 export default function ProjectDetail() {
