@@ -7,6 +7,9 @@ const registry = {
   ),
   "todo-app": lazy(() => import("../projects/todo/ToDoApp.jsx")),
   "get-advice": lazy(() => import("../projects/get-advice/GetAdvice.jsx")),
+  "color-change": lazy(() =>
+    import("../projects/color-change/ColorChange.jsx")
+  ),
 };
 
 export default function ProjectDetail() {

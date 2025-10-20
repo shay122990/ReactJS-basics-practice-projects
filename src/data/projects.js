@@ -27,4 +27,13 @@ export const PROJECTS = [
     skills: "async await",
     img: "https://via.placeholder.com/640x360?text=Todo",
   },
+  {
+    id: 4,
+    slug: "color-change",
+    title: "Color Change",
+    category: "State update",
+    learn: "How to update state and work with inline styles",
+    skills: "state change, setTimeOut, copy to clipboard",
+    img: "https://via.placeholder.com/640x360?text=Todo",
+  },
 ];
