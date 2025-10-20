@@ -23,18 +23,30 @@ export default function App() {
   return (
     <div
       style={{
-        backgroundColor: color,
         height: "100vh",
         display: "flex",
-        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        color: "white",
-        fontFamily: "Poppins, sans-serif",
+        background: "#0f172a",
       }}
     >
-      <h1>{color}</h1>
-      <div style={{ display: "flex", gap: "12px", marginTop: "20px" }}>
+      <div
+        style={{
+          backgroundColor: color,
+          height: "80vh",
+          width: "80%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          color: "white",
+          fontFamily: "Poppins, sans-serif",
+          gap: "10px",
+          borderRadius: "8px",
+        }}
+      >
+        <h1>{color}</h1>
         <button
           onClick={changeColor}
           style={{
