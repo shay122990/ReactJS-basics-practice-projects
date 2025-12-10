@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./calculator.css";
 
 const buttons = [
   "C",
@@ -164,24 +165,25 @@ function Calculator() {
       return;
     }
   };
-
   return (
-    <div className="calculator">
-      <div className="display">{display}</div>
-      <div className="buttons">
-        {buttons.map((btn) => (
-          <button
-            key={btn}
-            className={`btn ${
-              isOperator(btn) || btn === "=" ? "btn-operator" : ""
-            } ${btn === "C" ? "btn-clear" : ""} ${
-              btn === "0" ? "btn-zero" : ""
-            }`}
-            onClick={() => handleClick(btn)}
-          >
-            {btn}
-          </button>
-        ))}
+    <div className="calculator-page">
+      <div className="calculator">
+        <div className="display">{display}</div>
+        <div className="buttons">
+          {buttons.map((btn) => (
+            <button
+              key={btn}
+              className={`btn ${
+                isOperator(btn) || btn === "=" ? "btn-operator" : ""
+              } ${btn === "C" ? "btn-clear" : ""} ${
+                btn === "0" ? "btn-zero" : ""
+              }`}
+              onClick={() => handleClick(btn)}
+            >
+              {btn}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

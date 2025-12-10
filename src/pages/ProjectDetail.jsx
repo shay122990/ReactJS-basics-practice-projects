@@ -10,6 +10,7 @@ const registry = {
   "color-change": lazy(() =>
     import("../projects/color-change/ColorChange.jsx")
   ),
+  calculator: lazy(() => import("../projects/calculator/Calculator.jsx")),
 };
 
 export default function ProjectDetail() {

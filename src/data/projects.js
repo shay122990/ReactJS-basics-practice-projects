@@ -36,4 +36,13 @@ export const PROJECTS = [
     skills: "state change, setTimeOut, copy to clipboard",
     img: "https://via.placeholder.com/640x360?text=Todo",
   },
+  {
+    id: 5,
+    slug: "calculator",
+    title: "Calculator",
+    category: "State update",
+    learn: "Managing multiple related states (display, operator, prevValue)",
+    skills: "state change, switch, String, Number, includes",
+    img: "https://via.placeholder.com/640x360?text=Todo",
+  },
 ];
