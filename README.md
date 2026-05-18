@@ -9,7 +9,7 @@ This repository contains projects focused on modern UI development, reusable com
 Add your deployed website link here:
 
 ```txt id="s3v7ko"
-https://your-project.vercel.app
+[https://your-project.vercel.app](https://react-js-basics-practice-projects.vercel.app/)
 ```
 
 ## Preview
