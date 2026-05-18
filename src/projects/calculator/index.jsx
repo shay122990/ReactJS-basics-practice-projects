@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./calculator.css";
 
 const buttons = [
   "C",

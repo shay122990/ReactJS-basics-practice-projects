@@ -1,59 +1,75 @@
-1. Counter & Click Tracker (Basics)
+# React Projects
 
-Learn: JSX, components, props, useState, events
+A collection of frontend projects built with React and Vite.
 
-Skills: state management, event handling
+This repository contains projects focused on modern UI development, reusable components, routing, responsive layouts, and interactive user experiences.
 
-2. Todo App (Core Fundamentals)
+## Live Website
 
-Learn: CRUD operations with state, lists, keys, conditional rendering
+Add your deployed website link here:
 
-Skills: managing arrays of objects, controlled inputs
+```txt id="s3v7ko"
+https://your-project.vercel.app
+```
 
-3. Weather App (API Fetching)
+## Preview
 
-Learn: useEffect, fetching API data, error/loading states
+Add screenshots or GIF previews:
 
-Skills: working with external APIs
+```md id="c1f9xe"
+![Preview](./src/assets/preview.png)
+```
 
-4. Quiz App (State + Conditional UI)
+Or external image links:
 
-Learn: dynamic rendering, controlled inputs, conditional rendering
+```md id="jlwm3n"
+![Preview](https://your-image-link.com/image.png)
+```
 
-Skills: handling user flow and logic in state
+---
 
-5. Movie Search App (API + Forms)
+## Tech Stack
 
-Learn: debounced search, controlled forms, async fetching
+* React
+* Vite
+* JavaScript
+* CSS / SCSS
+* React Router
 
-Skills: combining input handling with API integration
+---
 
-6. Blog App (React Router)
+## Features
 
-Learn: multiple pages, nested routes, URL params
+* Responsive layouts
+* Reusable components
+* Dynamic routing
+* Modern frontend architecture
+* Fast development with Vite
 
-Skills: navigation, data display by route
+---
 
-7. Notes App (Context API)
+## Getting Started
 
-Learn: global state with Context
+Install dependencies:
 
-Skills: passing state across components without prop drilling
+```bash id="v0b6hj"
+npm install
+```
 
-8. E-Commerce Cart (Reducer + Context)
+Start development server:
 
-Learn: useReducer, cart management, derived state (totals, quantities)
+```bash id="1g7kdn"
+npm run dev
+```
 
-Skills: complex state logic, reusable components
+Build for production:
 
-9. Authentication Flow (Forms + Routing)
+```bash id="v4e8ru"
+npm run build
+```
 
-Learn: login/signup UI, fake auth, protected routes
+---
 
-Skills: conditional routing, localStorage/sessionStorage
+## Author
 
-10. Dashboard / Portfolio App (Polished Project)
-
-Learn: component architecture, reusable UI, Tailwind or styled components
-
-Skills: layout, responsiveness, deployment (Vercel/Netlify)
+Shay Asanova

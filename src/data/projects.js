@@ -11,12 +11,12 @@ export const PROJECTS = [
   },
   {
     id: 2,
-    slug: "todo-app",
+    slug: "todo",
     title: "Todo App",
     category: "Core Fundamentals",
     learn: "CRUD with state, lists, keys, conditional rendering",
     skills: "arrays of objects, controlled inputs",
-    img: "https://via.placeholder.com/640x360?text=Todo",
+    img: img1,
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ export const PROJECTS = [
     category: "API fetching basics",
     learn: "How to fetch data from API",
     skills: "async await",
-    img: "https://via.placeholder.com/640x360?text=Todo",
+    img: img1,
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ export const PROJECTS = [
     category: "State update",
     learn: "How to update state and work with inline styles",
     skills: "state change, setTimeOut, copy to clipboard",
-    img: "https://via.placeholder.com/640x360?text=Todo",
+    img: img1,
   },
   {
     id: 5,
@@ -43,6 +43,15 @@ export const PROJECTS = [
     category: "State update",
     learn: "Managing multiple related states (display, operator, prevValue)",
     skills: "state change, switch, String, Number, includes",
-    img: "https://via.placeholder.com/640x360?text=Todo",
+    img: img1,
+  },
+  {
+    id: 6,
+    slug: "pizza-menu",
+    title: "Pizza Menu",
+    category: "State update",
+    learn: "Managing multiple related states (display, operator, prevValue)",
+    skills: "state change, switch, String, Number, includes",
+    img: img1,
   },
 ];

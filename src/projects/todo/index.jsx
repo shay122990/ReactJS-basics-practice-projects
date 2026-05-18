@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function App() {
+export default function ToDo() {
   const [input, setInput] = useState("");
   const [list, setList] = useState([]);
 

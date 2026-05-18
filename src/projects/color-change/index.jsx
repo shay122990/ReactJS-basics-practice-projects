@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 export default function App() {
   const [color, setColor] = useState("#1e293b");
   const [copyText, setCopyText] = useState("Copy");

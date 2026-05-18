@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 export default function CounterApp() {
   const [count, setCount] = useState(0);
 
