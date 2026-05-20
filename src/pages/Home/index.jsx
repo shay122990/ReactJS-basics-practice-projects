@@ -20,36 +20,40 @@ export default function Home() {
   }, [q]);
 
   return (
-    <div className={styles.container}>
-      <h1>React Practice Projects</h1>
+    <div className={styles.page}>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <h1>React Practice Projects</h1>
 
-      <input
-        className={styles.input}
-        value={q}
-        onChange={(e) => setQ(e.target.value)}
-        placeholder="Search projects…"
-      />
+          <input
+            className={styles.input}
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="Search projects…"
+          />
+        </div>
 
-      <div className={styles.grid}>
-        {filtered.map((p) => (
-          <Link key={p.id} to={`/projects/${p.slug}`} className={styles.card}>
-            <img className={styles.thumb} src={p.img} alt={p.title} />
+        <div className={styles.grid}>
+          {filtered.map((p) => (
+            <Link key={p.id} to={`/projects/${p.slug}`} className={styles.card}>
+              <img className={styles.thumb} src={p.img} alt={p.title} />
 
-            <div className={styles.body}>
-              <div className={styles.kicker}>{p.category}</div>
+              <div className={styles.body}>
+                <div className={styles.kicker}>{p.category}</div>
 
-              <h3 className={styles.title}>{p.title}</h3>
+                <h3 className={styles.title}>{p.title}</h3>
 
-              <p className={styles.meta}>
-                <b>Learn:</b> {p.learn}
-              </p>
+                <p className={styles.meta}>
+                  <b>Learn:</b> {p.learn}
+                </p>
 
-              <p className={styles.meta}>
-                <b>Skills:</b> {p.skills}
-              </p>
-            </div>
-          </Link>
-        ))}
+                <p className={styles.meta}>
+                  <b>Skills:</b> {p.skills}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
