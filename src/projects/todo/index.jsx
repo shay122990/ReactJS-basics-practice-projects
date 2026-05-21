@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./Todo.module.css";
 
 export default function ToDo() {
   const [input, setInput] = useState("");
@@ -6,32 +7,56 @@ export default function ToDo() {
 
   const addTask = () => {
     if (!input.trim()) return;
-    setList((prevList) => [...prevList, input]);
+
+    setList((prev) => [...prev, input]);
+
     setInput("");
   };
+
   const handleDelete = (indexToRemove) => {
-    setList((prevList) => prevList.filter((_, i) => i !== indexToRemove));
+    setList((prev) => prev.filter((_, i) => i !== indexToRemove));
   };
 
   return (
-    <div className="panel">
-      <h1>To-Do List</h1>
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        className="input"
-      />
-      <button onClick={addTask} className="btn">
-        Add Task
-      </button>
-      <ul>
-        {list.map((item, index) => (
-          <li key={index}>
-            {item} <button onClick={() => handleDelete(index)}>❌</button>
-          </li>
-        ))}
-      </ul>
+    <div className={styles.page}>
+      <div className={`${styles.orb} ${styles.orb1}`}></div>
+      <div className={`${styles.orb} ${styles.orb2}`}></div>
+      <div className={`${styles.orb} ${styles.orb3}`}></div>
+
+      <div className={styles.grid}></div>
+
+      <div className={styles.panel}>
+        <h1 className={styles.title}>To-Do List</h1>
+
+        <div className={styles.controls}>
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Add a task..."
+            className={styles.input}
+          />
+
+          <button onClick={addTask} className={styles.btn}>
+            Add
+          </button>
+        </div>
+
+        <ul className={styles.list}>
+          {list.map((item, index) => (
+            <li key={index} className={styles.item}>
+              <span>{item}</span>
+
+              <button
+                onClick={() => handleDelete(index)}
+                className={styles.deleteBtn}
+              >
+                ✕
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

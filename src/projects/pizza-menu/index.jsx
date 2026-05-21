@@ -1,41 +1,30 @@
 import React from "react";
-import styles from "./Pizza-Menu.module.css";
+import styles from "./PizzaMenu.module.css";
 
 import { pizzaData } from "./data";
 
 function Header() {
   return (
     <header className={styles.header}>
+      <p className={styles.kicker}>Wood Fired Since 1998</p>
+
       <h1>Fast React Pizza Co.</h1>
+
+      <p className={styles.description}>
+        Authentic Italian cuisine crafted with organic ingredients,
+        slow-fermented dough, and recipes passed through generations.
+      </p>
     </header>
   );
 }
 
 function Menu() {
-  const pizzas = pizzaData;
-  const numPizzas = pizzas.length;
-
   return (
-    <main className={styles.menu}>
-      <h2>Our Menu</h2>
-
-      {numPizzas > 0 ? (
-        <>
-          <p>
-            Authentic Italian cuisine. 6 creative dishes to choose from. All
-            from our stone oven, all organic, all delicious.
-          </p>
-
-          <ul className={styles.pizzas}>
-            {pizzas.map((pizza) => (
-              <Pizza pizzaObject={pizza} key={pizza.name} />
-            ))}
-          </ul>
-        </>
-      ) : (
-        <p>We're still working on our menu. Please come back later.</p>
-      )}
-    </main>
+    <div className={styles.menu}>
+      {pizzaData.map((pizza) => (
+        <Pizza pizzaObject={pizza} key={pizza.name} />
+      ))}
+    </div>
   );
 }
 
@@ -43,60 +32,81 @@ function Pizza({
   pizzaObject: { name, photoName, ingredients, price, soldOut },
 }) {
   return (
-    <li className={`${styles.pizza} ${soldOut ? styles["sold-out"] : ""}`}>
-      <img src={photoName} alt={name} />
+    <div className={`${styles.pizza} ${soldOut ? styles.soldOut : ""}`}>
+      <img src={photoName} alt={name} className={styles.thumb} />
 
-      <div>
-        <h3>{name}</h3>
+      <div className={styles.info}>
+        <div className={styles.top}>
+          <h3>{name}</h3>
 
-        <p>{ingredients}</p>
+          <div className={styles.line}></div>
 
-        <span>{soldOut ? "SOLD OUT" : `$${price}`}</span>
+          <span className={styles.price}>
+            {soldOut ? "Sold Out" : `$${price}`}
+          </span>
+        </div>
+
+        <p className={styles.ingredients}>{ingredients}</p>
       </div>
-    </li>
+    </div>
   );
 }
 
-function Footer() {
-  const hour = new Date().getHours();
-
-  const openHour = 12;
-  const closeHour = 22;
-
-  const isOpen = hour >= openHour && hour <= closeHour;
-
+function RightPage() {
   return (
-    <footer className={styles.footer}>
-      {isOpen ? (
-        <Order openHour={openHour} closeHour={closeHour} />
-      ) : (
-        <p>
-          We're open between {openHour}:00 and {closeHour}:00.
-        </p>
-      )}
-    </footer>
-  );
-}
+    <div className={styles.rightPage}>
+      <img
+        className={styles.heroImage}
+        src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop"
+        alt="Pizza"
+      />
 
-function Order({ openHour, closeHour }) {
-  return (
-    <div className={styles.order}>
-      <p>
-        We're open from {openHour}:00 to {closeHour}:00. Come visit us or order
-        online.
+      <p className={styles.sectionLabel}>House Philosophy</p>
+
+      <h2 className={styles.storyTitle}>
+        Honest food.
+        <br />
+        Slow cooking.
+      </h2>
+
+      <p className={styles.story}>
+        Every pizza is prepared in a traditional stone oven using imported
+        Italian flour, San Marzano tomatoes, and fresh local ingredients.
       </p>
 
-      <button className={styles.btn}>Order</button>
+      <div className={styles.hours}>
+        <div>
+          <span>Monday — Friday</span>
+          <span>12:00 — 22:00</span>
+        </div>
+
+        <div>
+          <span>Saturday</span>
+          <span>14:00 — 23:00</span>
+        </div>
+
+        <div>
+          <span>Sunday</span>
+          <span>Closed</span>
+        </div>
+      </div>
+
+      <button className={styles.btn}>Reserve Table</button>
     </div>
   );
 }
 
 export default function App() {
   return (
-    <div className={styles.container}>
-      <Header />
-      <Menu />
-      <Footer />
+    <div className={styles.page}>
+      <div className={styles.container}>
+        <div className={styles.leftPage}>
+          <Header />
+          <Menu />
+        </div>
+
+        <RightPage />
+      </div>
     </div>
   );
 }

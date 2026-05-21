@@ -1,102 +1,156 @@
 .calculator-page {
-  min-height: calc(100vh - 48px);
+  min-height: 100vh;
+
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+
   padding: 24px;
+
+  background:
+    radial-gradient(circle at top left, #ff00cc55, transparent 30%),
+    radial-gradient(circle at bottom right, #3333ff55, transparent 30%),
+    linear-gradient(135deg, #120018, #090b1a 40%, #120018);
+
+  overflow: hidden;
 }
 
 .calculator {
-  max-width: 320px;
-  width: 100%;
-  padding: 16px;
-  border-radius: 24px;
-  background: #020617;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  color: #f9fafb;
+  width: min(100%, 380px);
+
+  padding: 22px;
+
+  border-radius: 32px;
+
+  background: rgba(18, 18, 30, 0.78);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(170, 0, 255, 0.15);
+
+  position: relative;
 }
 
-.calculator .display {
-  background: #0b1120;
+.calculator::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: inherit;
+
+  padding: 1px;
+
+  background: linear-gradient(135deg, #ff00cc, #7b61ff, #00e0ff);
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+
+  pointer-events: none;
+}
+
+.display {
+  height: 110px;
+
+  margin-bottom: 20px;
   padding: 20px;
-  border-radius: 16px;
-  text-align: right;
-  font-size: 2.4rem;
-  min-height: 64px;
+
+  border-radius: 24px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.02)
+  );
+
   display: flex;
-  align-items: center;
   justify-content: flex-end;
-  overflow: hidden;
-  word-wrap: break-word;
+  align-items: flex-end;
+
+  color: white;
+
+  font-size: 3.8rem;
+  font-weight: 700;
+
+  overflow-x: auto;
+
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.06),
+    inset 0 -4px 12px rgba(0, 0, 0, 0.35);
 }
 
-.calculator .buttons {
+.buttons {
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
-  gap: 4px;
+
+  gap: 14px;
 }
 
-.calculator .btn {
-  display: flex;
-  justify-content: center;
+.btn {
+  height: 72px;
+
   border: none;
-  border-radius: 999px;
-  /* padding: 16px 0; */
-  font-size: 1.1rem;
+  border-radius: 22px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.04)
+  );
+
+  color: white;
+
+  font-size: 1.5rem;
+  font-weight: 700;
+
   cursor: pointer;
-  background: #111827;
-  color: #e5e7eb;
-  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.2s ease;
+
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease;
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.08),
+    0 8px 18px rgba(0, 0, 0, 0.25);
 }
 
-.calculator .btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.6);
-  background: #1f2937;
+.btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    0 10px 22px rgba(0, 0, 0, 0.35);
 }
 
-.calculator .btn:active {
-  transform: translateY(0);
-  box-shadow: none;
+.btn:active {
+  transform: scale(0.96);
 }
 
-.calculator .btn-operator {
-  background: #2563eb;
-  color: #f9fafb;
+.btn-operator {
+  background: linear-gradient(135deg, #ff00cc, #7b61ff);
+
+  color: white;
+
+  box-shadow: 0 10px 22px rgba(123, 97, 255, 0.4);
 }
 
-.calculator .btn-operator:hover {
-  background: #1d4ed8;
+.btn-operator:hover {
+  box-shadow: 0 14px 28px rgba(123, 97, 255, 0.55);
 }
 
-.calculator .btn-clear {
-  background: #6b21a8;
+.btn-clear {
+  background: linear-gradient(135deg, #ff4d6d, #ff006e);
 }
 
-.calculator .btn-clear:hover {
-  background: #581c87;
-}
-
-.calculator .btn-zero {
+.btn-zero {
   grid-column: span 2;
-}
-
-@media (max-width: 480px) {
-  .calculator {
-    padding: 12px;
-    border-radius: 20px;
-  }
-
-  .calculator .display {
-    font-size: 2rem;
-    padding: 16px;
-  }
-
-  .calculator .btn {
-    padding: 14px 0;
-    font-size: 1rem;
-  }
 }

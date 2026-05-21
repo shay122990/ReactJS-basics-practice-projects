@@ -1,0 +1,281 @@
+.page {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 20px;
+
+  background: linear-gradient(to bottom, #3b2416, #1c120c);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* DESK LIGHTING */
+
+.page::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 214, 153, 0.22),
+    transparent 45%
+  );
+
+  pointer-events: none;
+}
+
+/* PAPER */
+
+.panel {
+  width: min(100%, 760px);
+
+  min-height: 720px;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    #f7f1df 0px,
+    #f7f1df 36px,
+    #d8d2c1 37px
+  );
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+
+  position: relative;
+
+  padding: 80px 70px 60px 90px;
+
+  transform: rotate(-1deg);
+}
+
+/* RED NOTEBOOK MARGIN */
+
+.panel::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 60px;
+
+  width: 2px;
+
+  background: rgba(220, 70, 70, 0.5);
+}
+
+/* PAPER TEXTURE */
+
+.panel::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image: radial-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+
+  background-size: 4px 4px;
+
+  pointer-events: none;
+
+  opacity: 0.4;
+}
+
+.title {
+  font-family: "Times New Roman", serif;
+
+  font-size: 3.2rem;
+
+  color: #3b2a1e;
+
+  margin-bottom: 36px;
+
+  font-weight: bold;
+}
+
+/* INPUT AREA */
+
+.controls {
+  display: flex;
+
+  gap: 12px;
+
+  margin-bottom: 30px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.input {
+  flex: 1;
+
+  border: none;
+
+  background: transparent;
+
+  border-bottom: 2px dashed rgba(70, 50, 40, 0.3);
+
+  padding: 10px 0;
+
+  font-size: 1.2rem;
+
+  font-family: "Courier New", monospace;
+
+  color: #2c1f17;
+
+  outline: none;
+}
+
+.input::placeholder {
+  color: rgba(70, 50, 40, 0.45);
+}
+
+.btn {
+  border: none;
+
+  background: #3b2416;
+
+  color: #f7f1df;
+
+  padding: 12px 20px;
+
+  font-size: 0.95rem;
+
+  font-family: "Courier New", monospace;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.1s ease,
+    background 0.1s ease;
+}
+
+.btn:hover {
+  background: #4d3020;
+}
+
+.btn:active {
+  transform: translateY(2px);
+}
+
+/* TASKS */
+
+.list {
+  list-style: none;
+
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.item {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 18px;
+
+  color: #2f2218;
+
+  font-size: 1.35rem;
+
+  line-height: 1.4;
+
+  font-family: "Bradley Hand", "Comic Sans MS", cursive;
+
+  animation: handwriting 0.35s ease;
+}
+
+.item span {
+  flex: 1;
+
+  word-break: break-word;
+}
+
+/* HANDWRITTEN BULLET */
+
+.item span::before {
+  content: "• ";
+
+  color: #7a3d2b;
+}
+
+/* DELETE */
+
+.deleteBtn {
+  border: none;
+
+  background: transparent;
+
+  color: #a04545;
+
+  font-size: 1.1rem;
+
+  cursor: pointer;
+
+  opacity: 0.7;
+
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.deleteBtn:hover {
+  opacity: 1;
+
+  transform: rotate(8deg);
+}
+
+/* HANDWRITING EFFECT */
+
+@keyframes handwriting {
+  from {
+    opacity: 0;
+
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    opacity: 1;
+
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .panel {
+    padding: 60px 30px 40px 55px;
+  }
+
+  .title {
+    font-size: 2.4rem;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .item {
+    font-size: 1.1rem;
+  }
+}

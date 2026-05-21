@@ -1,0 +1,287 @@
+.page {
+  min-height: 100vh;
+
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(to bottom, #050816 0%, #0b1026 45%, #12091d 100%);
+}
+
+/* STARS */
+
+.page::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 70% 20%, white, transparent),
+    radial-gradient(1px 1px at 40% 80%, white, transparent),
+    radial-gradient(2px 2px at 90% 60%, white, transparent),
+    radial-gradient(1px 1px at 10% 70%, white, transparent);
+
+  background-size: 400px 400px;
+
+  opacity: 0.35;
+
+  animation: starsMove 120s linear infinite;
+}
+
+/* MOUNTAIN LAYERS */
+
+.mountainBack,
+.mountainMid,
+.mountainFront {
+  position: absolute;
+
+  bottom: 0;
+
+  width: 200%;
+
+  background-repeat: repeat-x;
+
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.mountainBack {
+  height: 260px;
+
+  background: polygon(
+    0% 100%,
+    10% 60%,
+    20% 85%,
+    30% 40%,
+    40% 75%,
+    50% 50%,
+    60% 80%,
+    70% 35%,
+    80% 70%,
+    90% 55%,
+    100% 100%
+  );
+
+  clip-path: polygon(
+    0% 100%,
+    10% 60%,
+    20% 85%,
+    30% 40%,
+    40% 75%,
+    50% 50%,
+    60% 80%,
+    70% 35%,
+    80% 70%,
+    90% 55%,
+    100% 100%
+  );
+
+  background-color: #161c3d;
+
+  opacity: 0.45;
+
+  animation: moveBack 90s linear infinite;
+}
+
+.mountainMid {
+  height: 340px;
+
+  clip-path: polygon(
+    0% 100%,
+    8% 55%,
+    18% 82%,
+    28% 38%,
+    38% 72%,
+    48% 42%,
+    58% 78%,
+    68% 30%,
+    78% 70%,
+    88% 50%,
+    100% 100%
+  );
+
+  background-color: #1d2550;
+
+  opacity: 0.72;
+
+  animation: moveMid 55s linear infinite;
+}
+
+.mountainFront {
+  height: 430px;
+
+  clip-path: polygon(
+    0% 100%,
+    7% 48%,
+    17% 80%,
+    27% 30%,
+    37% 66%,
+    47% 38%,
+    57% 76%,
+    67% 20%,
+    77% 65%,
+    87% 42%,
+    100% 100%
+  );
+
+  background: linear-gradient(to top, #06070d, #12162b);
+
+  animation: moveFront 32s linear infinite;
+}
+
+/* PANEL */
+
+.panel {
+  position: relative;
+
+  width: min(90%, 760px);
+
+  z-index: 10;
+
+  color: #f8fafc;
+
+  text-align: left;
+
+  padding: 0 24px;
+}
+
+.label {
+  font-size: 0.8rem;
+
+  letter-spacing: 0.35em;
+
+  text-transform: uppercase;
+
+  opacity: 0.6;
+
+  margin-bottom: 24px;
+}
+
+.advice {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+
+  line-height: 1.05;
+
+  font-weight: 900;
+
+  max-width: 12ch;
+
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.controls {
+  margin-top: 42px;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.btn {
+  background: transparent;
+
+  border: none;
+
+  color: white;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  padding: 0;
+
+  position: relative;
+
+  cursor: pointer;
+}
+
+.btn::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 100%;
+  height: 2px;
+
+  background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+
+  transform: scaleX(0);
+
+  transform-origin: left;
+
+  transition: transform 0.2s ease;
+}
+
+.btn:hover::after {
+  transform: scaleX(1);
+}
+
+.counter {
+  font-size: 0.95rem;
+
+  opacity: 0.72;
+}
+
+/* ANIMATIONS */
+
+@keyframes moveBack {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes moveMid {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes moveFront {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes starsMove {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-200px);
+  }
+}
+
+@media (max-width: 640px) {
+  .advice {
+    font-size: 2.5rem;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

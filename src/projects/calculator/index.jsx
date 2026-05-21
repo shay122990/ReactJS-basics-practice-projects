@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./Calculator.module.css";
 
 const buttons = [
   "C",
@@ -45,6 +46,7 @@ function Calculator() {
     }
 
     if (display === "0" && value === "0") return;
+
     if (display === "0" && value !== ".") {
       setDisplay(value);
       return;
@@ -56,7 +58,9 @@ function Calculator() {
   };
 
   const compute = () => {
-    if (previousValue === null || operator === null) return Number(display);
+    if (previousValue === null || operator === null) {
+      return Number(display);
+    }
 
     const current = Number(display);
     const prev = Number(previousValue);
@@ -67,19 +71,19 @@ function Calculator() {
       case "+":
         result = prev + current;
         break;
+
       case "−":
         result = prev - current;
         break;
+
       case "×":
         result = prev * current;
         break;
+
       case "÷":
-        if (current === 0) {
-          result = "Error";
-        } else {
-          result = prev / current;
-        }
+        result = current === 0 ? "Error" : prev / current;
         break;
+
       default:
         break;
     }
@@ -97,6 +101,7 @@ function Calculator() {
       setPreviousValue(display);
     } else {
       const result = compute();
+
       setPreviousValue(String(result));
       setDisplay(String(result));
     }
@@ -112,7 +117,9 @@ function Calculator() {
     }
 
     const result = compute();
+
     setDisplay(String(result));
+
     setPreviousValue(null);
     setOperator(null);
     setOverwrite(true);
@@ -120,12 +127,15 @@ function Calculator() {
 
   const handlePercent = () => {
     if (display === "Error") return;
+
     const value = Number(display) / 100;
+
     setDisplay(String(value));
   };
 
   const handleToggleSign = () => {
     if (display === "Error") return;
+
     if (display.startsWith("-")) {
       setDisplay(display.slice(1));
     } else if (display !== "0") {
@@ -161,22 +171,24 @@ function Calculator() {
 
     if (btn === "±") {
       handleToggleSign();
-      return;
     }
   };
+
   return (
-    <div className="calculator-page">
-      <div className="calculator">
-        <div className="display">{display}</div>
-        <div className="buttons">
+    <div className={styles["calculator-page"]}>
+      <div className={styles.calculator}>
+        <div className={styles.display}>{display}</div>
+
+        <div className={styles.buttons}>
           {buttons.map((btn) => (
             <button
               key={btn}
-              className={`btn ${
-                isOperator(btn) || btn === "=" ? "btn-operator" : ""
-              } ${btn === "C" ? "btn-clear" : ""} ${
-                btn === "0" ? "btn-zero" : ""
-              }`}
+              className={`
+                ${styles.btn}
+                ${isOperator(btn) || btn === "=" ? styles["btn-operator"] : ""}
+                ${btn === "C" ? styles["btn-clear"] : ""}
+                ${btn === "0" ? styles["btn-zero"] : ""}
+              `}
               onClick={() => handleClick(btn)}
             >
               {btn}
