@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./Todo.module.css";
+import styles from "./ToDo.module.css";
 
 export default function ToDo() {
   const [input, setInput] = useState("");
