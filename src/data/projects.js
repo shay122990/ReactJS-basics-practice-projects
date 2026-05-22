@@ -54,4 +54,13 @@ export const PROJECTS = [
     skills: "state change, switch, String, Number, includes",
     img: img1,
   },
+  {
+    id: 7,
+    slug: "steps",
+    title: "Steps",
+    category: "State update",
+    learn: "Managing steps update",
+    skills: "state change",
+    img: img1,
+  },
 ];

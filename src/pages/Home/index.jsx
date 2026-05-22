@@ -1,8 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-
 import { PROJECTS } from "../../data/projects";
-
 import styles from "./Home.module.css";
 
 export default function Home() {
@@ -22,38 +20,42 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <div className={styles.container}>
-        <div className={styles.hero}>
-          <p className={styles.kicker}>Frontend Experiments Archive</p>
+        <section className={styles.hero}>
+          <div>
+            <p className={styles.kicker}>Frontend Experiments Archive</p>
 
-          <h1 className={styles.heading}>
-            React
-            <br />
-            Practice
-            <br />
-            Projects
-          </h1>
+            <h1 className={styles.heading}>
+              React
+              <br />
+              Practice
+              <br />
+              Projects
+            </h1>
+          </div>
 
-          <p className={styles.description}>
-            A growing collection of React projects exploring fundamentals,
-            hooks, UI systems, interaction design, async patterns, and creative
-            frontend experimentation.
-          </p>
+          <div className={styles.heroRight}>
+            <p className={styles.description}>
+              A growing collection of React projects exploring fundamentals,
+              hooks, UI systems, interaction design, async patterns, and
+              creative frontend experimentation.
+            </p>
 
-          <input
-            className={styles.input}
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            placeholder="Search archive..."
-          />
-        </div>
+            <input
+              className={styles.input}
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              placeholder="Search archive..."
+            />
+          </div>
+        </section>
 
-        <div className={styles.grid}>
+        <section className={styles.grid}>
           {filtered.map((p) => (
             <Link key={p.id} to={`/projects/${p.slug}`} className={styles.card}>
               <img className={styles.thumb} src={p.img} alt={p.title} />
 
               <div className={styles.body}>
-                <div className={styles.kickerSmall}>{p.category}</div>
+                <p className={styles.kickerSmall}>{p.category}</p>
 
                 <h3 className={styles.title}>{p.title}</h3>
 
@@ -61,7 +63,7 @@ export default function Home() {
               </div>
             </Link>
           ))}
-        </div>
+        </section>
       </div>
     </div>
   );

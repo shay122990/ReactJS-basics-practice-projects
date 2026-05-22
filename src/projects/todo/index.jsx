@@ -60,3 +60,6 @@ export default function ToDo() {
     </div>
   );
 }
+
+// save todo
+// focus input
