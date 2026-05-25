@@ -63,4 +63,13 @@ export const PROJECTS = [
     skills: "state change",
     img: img1,
   },
+  {
+    id: 8,
+    slug: "travel-list",
+    title: "Travel-List",
+    category: "State update, lists, arrays",
+    learn: "Managing steps update",
+    skills: "state change",
+    img: img1,
+  },
 ];
