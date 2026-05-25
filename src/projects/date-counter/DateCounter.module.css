@@ -1,0 +1,200 @@
+.page {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 2rem;
+
+  position: relative;
+  overflow: hidden;
+
+  background-image: url("../../assets/punk-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(1px);
+}
+
+.app {
+  width: min(500px, 100%);
+  position: relative;
+  z-index: 2;
+  background: rgba(15, 15, 18, 0.92);
+  border: 1px solid #2c2c35;
+  border-radius: 28px;
+  padding: 2rem;
+
+  box-shadow: 0 0 30px rgba(255, 62, 165, 0.08);
+}
+
+.title {
+  font-size: 3rem;
+  line-height: 0.9;
+
+  margin-bottom: 2rem;
+
+  text-transform: uppercase;
+  font-weight: 900;
+
+  letter-spacing: -2px;
+
+  color: white;
+}
+
+.title span {
+  display: block;
+
+  color: #ff3ea5;
+
+  text-shadow: 0 0 12px rgba(255, 62, 165, 0.4);
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.range {
+  width: 100%;
+  accent-color: #ff3ea5;
+  cursor: pointer;
+}
+
+.stepValue {
+  width: 40px;
+
+  text-align: center;
+
+  color: #ff3ea5;
+  font-weight: 700;
+}
+
+.btn {
+  width: 56px;
+  height: 56px;
+
+  border: 1px solid #2c2c35;
+  border-radius: 16px;
+
+  background: #19191f;
+
+  color: white;
+
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  border-color: #ff3ea5;
+
+  color: #ff3ea5;
+
+  box-shadow: 0 0 15px rgba(255, 62, 165, 0.18);
+}
+
+.counterInput {
+  flex: 1;
+
+  height: 56px;
+
+  border-radius: 16px;
+  border: 1px solid #2c2c35;
+
+  background: #111114;
+
+  color: white;
+
+  text-align: center;
+
+  font-size: 1.1rem;
+  font-weight: 700;
+
+  outline: none;
+
+  transition: 0.2s ease;
+}
+
+.counterInput:focus {
+  border-color: #ff3ea5;
+
+  box-shadow: 0 0 15px rgba(255, 62, 165, 0.15);
+}
+
+.dateCard {
+  margin-top: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  padding: 1.5rem;
+
+  border-radius: 22px;
+
+  background: #111114;
+
+  border: 1px solid #2c2c35;
+}
+
+.message {
+  color: #8d8d97;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  font-size: 0.9rem;
+}
+
+.date {
+  font-size: 1.35rem;
+  font-weight: 800;
+
+  color: white;
+}
+
+.resetBtn {
+  width: 100%;
+
+  margin-top: 1.5rem;
+
+  padding: 1rem;
+
+  border: none;
+  border-radius: 18px;
+
+  background: linear-gradient(135deg, #ff3ea5, #8b5cf6);
+
+  color: white;
+
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.resetBtn:hover {
+  filter: brightness(1.08);
+
+  box-shadow: 0 0 20px rgba(255, 62, 165, 0.22);
+}

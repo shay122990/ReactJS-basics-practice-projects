@@ -72,4 +72,13 @@ export const PROJECTS = [
     skills: "state change",
     img: img1,
   },
+  {
+    id: 9,
+    slug: "date-counter",
+    title: "Date-Counter",
+    category: "State update, controlled elements",
+    learn: "Managing steps update",
+    skills: "state change",
+    img: img1,
+  },
 ];
