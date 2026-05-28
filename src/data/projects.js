@@ -81,4 +81,13 @@ export const PROJECTS = [
     skills: "state change",
     img: img1,
   },
+  {
+    id: 10,
+    slug: "flash-cards",
+    title: "Flash-Cards",
+    category: "State update, controlled elements",
+    learn: "Managing steps update",
+    skills: "state change",
+    img: img1,
+  },
 ];
