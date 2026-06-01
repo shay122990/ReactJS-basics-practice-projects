@@ -1,18 +1,41 @@
 import { useState } from "react";
 import styles from "./TravelList.module.css";
 
-const initialItems = [
-  { id: 1, description: "Passports", quantity: 2, packed: false },
-  { id: 2, description: "Socks", quantity: 12, packed: true },
-];
-
 function App() {
+  const [items, setItems] = useState([]);
+
+  function handleAddItems(item) {
+    setItems((items) => {
+      const updatedItems = [...items, item];
+
+      // console.log(updatedItems);
+
+      return updatedItems;
+    });
+  }
+
+  function handleDeleteItem(id) {
+    setItems((items) => items.filter((item) => item.id !== id));
+  }
+
+  function handleToggleItem(id) {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item,
+      ),
+    );
+  }
+
   return (
     <div className={styles.app}>
       <Logo />
-      <Form />
-      <PackingList />
-      <Stats />
+      <Form onAddItems={handleAddItems} />
+      <PackingList
+        items={items}
+        onDeleteItem={handleDeleteItem}
+        onToggleItem={handleToggleItem}
+      />
+      <Stats items={items} />
     </div>
   );
 }
@@ -23,7 +46,7 @@ function Logo() {
   return <h1 className={styles.logo}>🌴 Far Away 🧳</h1>;
 }
 
-function Form() {
+function Form({ onAddItems }) {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -39,7 +62,8 @@ function Form() {
       id: Date.now(),
     };
 
-    console.log(newItem);
+    // console.log(newItem);
+    onAddItems(newItem);
 
     setDescription("");
     setQuantity(1);
@@ -69,43 +93,60 @@ function Form() {
   );
 }
 
-function PackingList() {
+function PackingList({ items, onDeleteItem, onToggleItem }) {
   return (
     <div className={styles.list}>
       <ul>
-        {initialItems.map((item) => (
-          <Item item={item} key={item.id} />
+        {items.map((item) => (
+          <Item
+            item={item}
+            key={item.id}
+            onDeleteItem={onDeleteItem}
+            onToggleItem={onToggleItem}
+          />
         ))}
       </ul>
     </div>
   );
 }
 
-function Item({ item }) {
+function Item({ item, onDeleteItem, onToggleItem }) {
   return (
     <li className={styles.item}>
-      <span
-        style={
-          item.packed
-            ? {
-                textDecoration: "line-through",
-                opacity: 0.6,
-              }
-            : {}
-        }
-      >
-        {item.description} ({item.quantity})
+      <input
+        type="checkbox"
+        value={item.packed}
+        onChange={() => onToggleItem(item.id)}
+      />
+      <span style={item.packed ? { textDecoration: "line-through" } : {}}>
+        {item.description} {item.quantity}
       </span>
-
-      <button>❌</button>
+      <button onClick={() => onDeleteItem(item.id)}>❌</button>
     </li>
   );
 }
 
-function Stats() {
+function Stats({ items }) {
+  if (!items.length)
+    return (
+      <p className={styles.stats}>
+        {" "}
+        <em>Start adding some items to your packing list 🚀</em>{" "}
+      </p>
+    );
+
+  const numItems = items.length;
+  const numPacked = items.filter((item) => item.packed).length;
+  const percentage = (numPacked / numItems) * 100;
+
   return (
     <footer className={styles.stats}>
-      <em>🧳 You have X items on your list, and you already packed X (X%)</em>
+      <em>
+        {percentage === 100
+          ? "You got everything ready to go! ✈️"
+          : ` 🧳 You have ${numItems} items on your list, and you already packed 
+        ${numPacked} (${Math.trunc(percentage)}%)`}
+      </em>{" "}
     </footer>
   );
 }
