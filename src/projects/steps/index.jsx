@@ -48,13 +48,21 @@ const Steps = () => {
           </p>
 
           <div className={styles.buttons}>
-            <button className={styles.button} onClick={handlePrevious}>
+            {/* <button className={styles.button} onClick={handlePrevious}>
               ← Prev
-            </button>
+            </button> */}
+            <Button onClick={handlePrevious}>
+              <span>👈🏼</span> Prev
+            </Button>
 
-            <button className={styles.button} onClick={handleNext}>
+            {/* <button className={styles.button} onClick={handleNext}>
               Next →
-            </button>
+            </button> */}
+            <Button onClick={handleNext}>
+              {" "}
+              Next
+              <span> 👉🏼</span>
+            </Button>
           </div>
         </div>
       )}
@@ -63,3 +71,11 @@ const Steps = () => {
 };
 
 export default Steps;
+
+function Button({ children, onClick }) {
+  return (
+    <button className={styles.button} onClick={onClick}>
+      {children}
+    </button>
+  );
+}
