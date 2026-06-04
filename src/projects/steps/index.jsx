@@ -42,10 +42,12 @@ const Steps = () => {
             ))}
           </div>
 
-          <p className={styles.message}>
+          {/* <p className={styles.message}>
             <span>Step {step}</span>
             {messages[step - 1]}
-          </p>
+          </p> */}
+
+          <StepMessage step={step}>{messages[step - 1]} </StepMessage>
 
           <div className={styles.buttons}>
             {/* <button className={styles.button} onClick={handlePrevious}>
@@ -71,6 +73,15 @@ const Steps = () => {
 };
 
 export default Steps;
+
+function StepMessage({ step, children }) {
+  return (
+    <div className="message">
+      <h3>Step {step}:</h3>
+      {children}
+    </div>
+  );
+}
 
 function Button({ children, onClick }) {
   return (

@@ -1,0 +1,123 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, #5a4634, #2b2118 70%);
+  padding: 2rem;
+}
+
+.presenter {
+  background: #1f1a17;
+  padding: 1.5rem;
+  border-radius: 14px;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.05);
+}
+
+.receipt {
+  position: relative;
+  width: 450px;
+  background: #fffef8;
+  padding: 2rem;
+  transform: rotate(-1deg);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  font-family: "Courier New", monospace;
+}
+
+.receipt::before,
+.receipt::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: linear-gradient(-45deg, transparent 8px, #fffef8 0);
+}
+
+.receipt::before {
+  top: -12px;
+}
+
+.receipt::after {
+  bottom: -12px;
+  transform: rotate(180deg);
+}
+
+.title {
+  text-align: center;
+  letter-spacing: 4px;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.divider {
+  border-top: 2px dashed #bdbdbd;
+  margin: 1rem 0 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.input,
+.select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d6d0c4;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: #7d6645;
+}
+
+.summary {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 2px dashed #bdbdbd;
+}
+
+.total {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.breakdown {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.resetBtn {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  background: #1f1a17;
+  color: white;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.resetBtn:hover {
+  opacity: 0.9;
+}

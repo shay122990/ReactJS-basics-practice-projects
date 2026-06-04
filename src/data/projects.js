@@ -90,4 +90,14 @@ export const PROJECTS = [
     skills: "state change",
     img: img1,
   },
+  {
+    id: 11,
+    slug: "tip-calculator",
+    title: "Tip-Calculator",
+    category:
+      "lifting state, controlled inputs, children props, mapping arrays, reusable components, derived state",
+    learn: "Managing steps update",
+    skills: "state change",
+    img: img1,
+  },
 ];
