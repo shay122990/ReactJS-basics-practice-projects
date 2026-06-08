@@ -115,7 +115,7 @@ export const PROJECTS = [
     slug: "workout-tracker",
     title: "Workout-Tracker",
     category:
-      "lifting state, controlled inputs, mapping arrays, reusable components, derived state, localeCompare",
+      "lifting state, controlled inputs, sort, reusable components, derived state, localeCompare",
     learn: "controlled inputs",
     skills: "state change",
     img: img1,

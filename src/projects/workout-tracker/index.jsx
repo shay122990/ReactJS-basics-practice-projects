@@ -1,3 +1,4 @@
+import "./styles.css";
 import { useState } from "react";
 
 const initialData = [
@@ -20,7 +21,7 @@ const initialData = [
     name: "Hip-Thrusts",
     sets: 4,
     reps: 10,
-    completed: false,
+    completed: true,
   },
 ];
 // App
@@ -31,9 +32,10 @@ const initialData = [
 // └── WorkoutList
 //     └── WorkoutItem
 
-export default function WorkoutTracker() {
+export default function App() {
   const [workouts, setWorkouts] = useState(initialData);
   const [liveSearch, setLiveSearch] = useState("");
+  const [sort, setSort] = useState("option");
 
   function handleIsCompleted(id) {
     setWorkouts((workouts) =>
@@ -48,17 +50,28 @@ export default function WorkoutTracker() {
     setWorkouts((workouts) => [...workouts, workout]);
   }
 
-  // search live input
   const filteredWorkouts = workouts.filter((workout) =>
     workout.name.toLowerCase().includes(liveSearch.toLowerCase()),
   );
 
+  let sortedWorkouts = filteredWorkouts.slice();
+
+  if (sort === "completed") {
+    sortedWorkouts.sort((a, b) => b.completed - a.completed);
+  }
+
+  if (sort === "not-completed") {
+    sortedWorkouts.sort((a, b) => a.completed - b.completed);
+  }
+
   return (
     <div className="App">
       <WorkoutForm onHandleWorkout={handleStoreWorkout} />
-      <SearchBar value={liveSearch} setSearch={setLiveSearch} />
+      <SearchBar search={liveSearch} setSearch={setLiveSearch} />
+      <SortWorkouts sort={sort} setSort={setSort} />
+      <Stats workouts={sortedWorkouts} />
       <WorkoutList
-        workouts={filteredWorkouts}
+        workouts={sortedWorkouts}
         onHandleIsCompleted={handleIsCompleted}
       />
     </div>
@@ -149,6 +162,28 @@ function SearchBar({ search, setSearch }) {
   );
 }
 
-// TODO
-// function SortWorkout(){}
-// function Stats(){}
+function SortWorkouts({ sort, setSort }) {
+  return (
+    <select value={sort} onChange={(e) => setSort(e.target.value)}>
+      <option value="option">Option</option>
+      <option value="completed">Completed</option>
+      <option value="not-completed">Incomplete</option>
+    </select>
+  );
+}
+
+function Stats({ workouts }) {
+  const totalWorkouts = workouts.length;
+  const completedWorkouts = workouts.filter(
+    (workout) => workout.completed,
+  ).length;
+  const remainingWorkouts = totalWorkouts - completedWorkouts;
+
+  return (
+    <div>
+      <p>Total Workouts: {totalWorkouts}</p>
+      <p>Completed: {completedWorkouts}</p>
+      <p>Remaining: {remainingWorkouts}</p>
+    </div>
+  );
+}
