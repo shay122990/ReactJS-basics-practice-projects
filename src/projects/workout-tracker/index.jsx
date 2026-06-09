@@ -1,5 +1,5 @@
-import "./styles.css";
 import { useState } from "react";
+import styles from "./WorkoutTracker.module.css";
 
 const initialData = [
   {
@@ -24,15 +24,8 @@ const initialData = [
     completed: true,
   },
 ];
-// App
-// ├── WorkoutForm
-// ├── SearchBar
-// ├── SortControls
-// ├── Stats
-// └── WorkoutList
-//     └── WorkoutItem
 
-export default function App() {
+export default function WorkoutTracker() {
   const [workouts, setWorkouts] = useState(initialData);
   const [liveSearch, setLiveSearch] = useState("");
   const [sort, setSort] = useState("option");
@@ -65,7 +58,7 @@ export default function App() {
   }
 
   return (
-    <div className="App">
+    <div className={styles.container}>
       <WorkoutForm onHandleWorkout={handleStoreWorkout} />
       <SearchBar search={liveSearch} setSearch={setLiveSearch} />
       <SortWorkouts sort={sort} setSort={setSort} />
@@ -96,8 +89,8 @@ function WorkoutForm({ onHandleWorkout }) {
     setReps("");
   }
   return (
-    <form className="form" onSubmit={handleSubmitWorkout}>
-      <p>Input New Wokout</p>
+    <form className={styles.form} onSubmit={handleSubmitWorkout}>
+      <p>Input New Workout</p>
       <input
         type="text"
         placeholder="name"
@@ -123,7 +116,7 @@ function WorkoutForm({ onHandleWorkout }) {
 
 function WorkoutList({ workouts, onHandleIsCompleted }) {
   return (
-    <ul className="workout-list">
+    <ul className={styles.workoutList}>
       {workouts.map((workout) => (
         <WorkoutItem
           key={workout.id}
@@ -137,12 +130,18 @@ function WorkoutList({ workouts, onHandleIsCompleted }) {
 
 function WorkoutItem({ workout, onHandleIsCompleted }) {
   return (
-    <li className={`workout ${workout.completed ? "completed" : ""}`}>
+    <li
+      className={`${styles.workoutCard} ${
+        workout.completed ? styles.completed : ""
+      }`}
+    >
       <p>Name: {workout.name}</p>
       <p>Sets: {workout.sets}</p>
       <p>Reps: {workout.reps}</p>
-
-      <button onClick={() => onHandleIsCompleted(workout.id)}>
+      <button
+        className={styles.actionButton}
+        onClick={() => onHandleIsCompleted(workout.id)}
+      >
         {workout.completed ? "Completed ✓" : "Finish"}
       </button>
     </li>
@@ -153,8 +152,9 @@ function SearchBar({ search, setSearch }) {
   return (
     <>
       <input
+        className={styles.searchInput}
         type="text"
-        placeholder="search workout name"
+        placeholder="Search workout..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
@@ -164,7 +164,11 @@ function SearchBar({ search, setSearch }) {
 
 function SortWorkouts({ sort, setSort }) {
   return (
-    <select value={sort} onChange={(e) => setSort(e.target.value)}>
+    <select
+      className={styles.sortSelect}
+      value={sort}
+      onChange={(e) => setSort(e.target.value)}
+    >
       <option value="option">Option</option>
       <option value="completed">Completed</option>
       <option value="not-completed">Incomplete</option>
@@ -180,7 +184,7 @@ function Stats({ workouts }) {
   const remainingWorkouts = totalWorkouts - completedWorkouts;
 
   return (
-    <div>
+    <div className={styles.stats}>
       <p>Total Workouts: {totalWorkouts}</p>
       <p>Completed: {completedWorkouts}</p>
       <p>Remaining: {remainingWorkouts}</p>
