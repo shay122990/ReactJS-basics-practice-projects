@@ -115,7 +115,17 @@ export const PROJECTS = [
     slug: "workout-tracker",
     title: "Workout-Tracker",
     category:
-      "lifting state, controlled inputs, sort, reusable components, derived state, localeCompare",
+      "lifting state, controlled inputs, sort, reusable components, derived state,",
+    learn: "controlled inputs",
+    skills: "state change",
+    img: img1,
+  },
+  {
+    id: 14,
+    slug: "closet-tracker",
+    title: "Closet-Tracker",
+    category:
+      "State, Props, Forms, Arrays, map, filter, sort, Search, Rendering, Styling, Components",
     learn: "controlled inputs",
     skills: "state change",
     img: img1,

@@ -1,0 +1,227 @@
+.container {
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+
+  background:
+    linear-gradient(rgba(248, 245, 240, 0.4), rgba(248, 245, 240, 0.4)),
+    url("../../assets/closet-bg.png");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.container::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.45) 0,
+    rgba(255, 255, 255, 0.15) 12%,
+    transparent 25%,
+    transparent 75%,
+    rgba(255, 255, 255, 0.15) 88%,
+    rgba(255, 255, 255, 0.45) 100%
+  );
+}
+
+.container::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background: radial-gradient(
+    ellipse at top center,
+    rgba(255, 255, 255, 0.75),
+    transparent 60%
+  );
+}
+
+.title {
+  text-align: center;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  color: #5a5047;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
+
+  padding: 1.25rem;
+
+  margin-bottom: 1.5rem;
+
+  background: rgba(255, 255, 255, 0.82);
+
+  border-radius: 24px;
+
+  backdrop-filter: blur(16px);
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+}
+
+.form input,
+.form select,
+.form button,
+.searchInput,
+.select {
+  padding: 0.9rem;
+  border-radius: 12px;
+  border: 1px solid #e3ddd6;
+  font-size: 0.95rem;
+}
+
+.form input,
+.form select,
+.searchInput,
+.select {
+  background: #ffffff;
+}
+
+.form button {
+  background: #c9ab88;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.searchInput {
+  flex: 1;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stats p {
+  margin: 0;
+  padding: 1rem;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.8);
+
+  border-radius: 20px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.list {
+  list-style: none;
+
+  padding: 0;
+  margin: 0;
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+  gap: 1.5rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.9);
+
+  border-radius: 24px;
+
+  padding: 1.25rem;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+
+  transition: 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #433a33;
+}
+
+.card p {
+  margin: 0.4rem 0;
+}
+
+.favorite {
+  box-shadow:
+    0 0 0 2px rgba(212, 175, 55, 0.4),
+    0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.favorite::before {
+  content: "♥";
+  float: right;
+  color: #d4af37;
+  font-size: 1.2rem;
+}
+
+.card button {
+  width: 100%;
+
+  margin-top: 1rem;
+
+  border: none;
+
+  padding: 0.85rem;
+
+  border-radius: 12px;
+
+  background: #c9ab88;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form button {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .list {
+    grid-template-columns: 1fr;
+  }
+}
