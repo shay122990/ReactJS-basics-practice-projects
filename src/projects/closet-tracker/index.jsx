@@ -58,6 +58,14 @@ export default function ClosetTracker() {
   function handleAddToCloset(piece) {
     setCloset((closet) => [...closet, piece]);
   }
+
+  function handleSetFavorite(id) {
+    setCloset((closet) =>
+      closet.map((fav) =>
+        fav.id === id ? { ...fav, favorite: !fav.favorite } : fav,
+      ),
+    );
+  }
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>My Walk-In Closet</h1>
@@ -70,9 +78,9 @@ export default function ClosetTracker() {
         <SortControls />
       </div>
 
-      <Stats />
+      <Stats closet={closet} />
 
-      <ClothingList closet={closet} />
+      <ClothingList closet={closet} onHandleSetFavorite={handleSetFavorite} />
     </div>
   );
 }
@@ -105,6 +113,7 @@ function ClothingForm({ onHandleAddToCloset }) {
       color: capitalize(color.trim()),
       fabric: capitalize(fabric.trim()),
       category: capitalize(category),
+      favorite: false,
     };
     onHandleAddToCloset(newItem);
 
@@ -181,27 +190,38 @@ function SortControls() {
   );
 }
 
-function Stats() {
+function Stats({ closet }) {
+  const total = closet.length;
+
+  const favorites = closet.filter((item) => item.favorite).length;
+
+  const uniqueCategories = new Set(closet.map((item) => item.category));
+  const totalCategories = uniqueCategories.size;
+
   return (
     <div className={styles.stats}>
-      <p>Total Items: 0</p>
-      <p>Favorites: 0</p>
-      <p>Categories: 0</p>
+      <p>Total Items: {total}</p>
+      <p>Favorites: {favorites}</p>
+      <p>Categories: {totalCategories}</p>
     </div>
   );
 }
 
-function ClothingList({ closet }) {
+function ClothingList({ closet, onHandleSetFavorite }) {
   return (
     <ul className={styles.list}>
       {closet.map((item) => (
-        <ClothingItem key={item.id} item={item} />
+        <ClothingItem
+          key={item.id}
+          item={item}
+          onHandleSetFavorite={onHandleSetFavorite}
+        />
       ))}
     </ul>
   );
 }
 
-function ClothingItem({ item }) {
+function ClothingItem({ item, onHandleSetFavorite }) {
   return (
     <li className={`${styles.card} ${item.favorite ? styles.favorite : ""}`}>
       <h3>{item.item}</h3>
@@ -210,7 +230,7 @@ function ClothingItem({ item }) {
       <p>Color: {item.color}</p>
       <p>Fabric: {item.fabric}</p>
 
-      <button>♡ Favorite</button>
+      <button onClick={() => onHandleSetFavorite(item.id)}>♡ Favorite</button>
     </li>
   );
 }
