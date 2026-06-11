@@ -54,6 +54,7 @@ const initialCloset = [
 
 export default function ClosetTracker() {
   const [closet, setCloset] = useState(initialCloset);
+  const [search, setSearch] = useState("");
 
   function handleAddToCloset(piece) {
     setCloset((closet) => [...closet, piece]);
@@ -66,6 +67,11 @@ export default function ClosetTracker() {
       ),
     );
   }
+
+  const searchedItems = closet.filter((item) =>
+    item.item.toLowerCase().includes(search.toLocaleLowerCase()),
+  );
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>My Walk-In Closet</h1>
@@ -73,14 +79,17 @@ export default function ClosetTracker() {
       <ClothingForm close={closet} onHandleAddToCloset={handleAddToCloset} />
 
       <div className={styles.controls}>
-        <SearchBar />
+        <SearchBar search={search} setSearch={setSearch} />
         <CategoryFilter />
         <SortControls />
       </div>
 
       <Stats closet={closet} />
 
-      <ClothingList closet={closet} onHandleSetFavorite={handleSetFavorite} />
+      <ClothingList
+        closet={searchedItems}
+        onHandleSetFavorite={handleSetFavorite}
+      />
     </div>
   );
 }
@@ -157,12 +166,14 @@ function ClothingForm({ onHandleAddToCloset }) {
   );
 }
 
-function SearchBar() {
+function SearchBar({ search, setSearch }) {
   return (
     <input
       className={styles.searchInput}
       type="text"
       placeholder="Search clothing..."
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
     />
   );
 }
