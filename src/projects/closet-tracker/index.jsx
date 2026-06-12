@@ -55,6 +55,8 @@ const initialCloset = [
 export default function ClosetTracker() {
   const [closet, setCloset] = useState(initialCloset);
   const [search, setSearch] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [sort, setSort] = useState("default");
 
   function handleAddToCloset(piece) {
     setCloset((closet) => [...closet, piece]);
@@ -69,25 +71,41 @@ export default function ClosetTracker() {
   }
 
   const searchedItems = closet.filter((item) =>
-    item.item.toLowerCase().includes(search.toLocaleLowerCase()),
+    item.item.toLowerCase().includes(search.toLowerCase()),
   );
 
+  const categoryFiltered = searchedItems.filter((item) =>
+    selectedCategory === "All" ? true : item.category === selectedCategory,
+  );
+
+  let sortedItems = categoryFiltered.slice();
+
+  if (sort === "a-z") {
+    sortedItems.sort((a, b) => a.item.localeCompare(b.item));
+  }
+
+  if (sort === "favorites") {
+    sortedItems.sort((a, b) => b.favorite - a.favorite);
+  }
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>My Walk-In Closet</h1>
 
-      <ClothingForm close={closet} onHandleAddToCloset={handleAddToCloset} />
+      <ClothingForm onHandleAddToCloset={handleAddToCloset} />
 
       <div className={styles.controls}>
         <SearchBar search={search} setSearch={setSearch} />
-        <CategoryFilter />
-        <SortControls />
+        <CategoryFilter
+          category={selectedCategory}
+          setCategory={setSelectedCategory}
+        />
+        <SortControls sort={sort} setSort={setSort} />
       </div>
 
       <Stats closet={closet} />
 
       <ClothingList
-        closet={searchedItems}
+        items={sortedItems}
         onHandleSetFavorite={handleSetFavorite}
       />
     </div>
@@ -154,11 +172,11 @@ function ClothingForm({ onHandleAddToCloset }) {
       />
 
       <select value={category} onChange={(e) => setCategory(e.target.value)}>
-        <option>Top</option>
-        <option>Bottom</option>
-        <option>Outerwear</option>
-        <option>Shoes</option>
-        <option>Accessories</option>
+        <option value="Top">Top</option>
+        <option value="Bottom">Bottom</option>
+        <option value="Outerwear">Outerwear</option>
+        <option value="Shoes">Shoes</option>
+        <option value="Accessories">Accessories</option>
       </select>
 
       <button type="submit">Add Item</button>
@@ -178,25 +196,33 @@ function SearchBar({ search, setSearch }) {
   );
 }
 
-function CategoryFilter() {
+function CategoryFilter({ category, setCategory }) {
   return (
-    <select className={styles.select}>
-      <option>All</option>
-      <option>Top</option>
-      <option>Bottom</option>
-      <option>Outerwear</option>
-      <option>Shoes</option>
-      <option>Accessories</option>
+    <select
+      className={styles.select}
+      value={category}
+      onChange={(e) => setCategory(e.target.value)}
+    >
+      <option value="All">All</option>
+      <option value="Top">Top</option>
+      <option value="Bottom">Bottom</option>
+      <option value="Outerwear">Outerwear</option>
+      <option value="Shoes">Shoes</option>
+      <option value="Accessories">Accessories</option>
     </select>
   );
 }
 
-function SortControls() {
+function SortControls({ sort, setSort }) {
   return (
-    <select className={styles.select}>
-      <option>Default</option>
-      <option>Favorites First</option>
-      <option>A-Z</option>
+    <select
+      className={styles.select}
+      value={sort}
+      onChange={(e) => setSort(e.target.value)}
+    >
+      <option value="default">Default</option>
+      <option value="favorites">Favorites First</option>
+      <option value="a-z">A-Z</option>
     </select>
   );
 }
@@ -218,10 +244,10 @@ function Stats({ closet }) {
   );
 }
 
-function ClothingList({ closet, onHandleSetFavorite }) {
+function ClothingList({ items, onHandleSetFavorite }) {
   return (
     <ul className={styles.list}>
-      {closet.map((item) => (
+      {items.map((item) => (
         <ClothingItem
           key={item.id}
           item={item}
@@ -245,3 +271,6 @@ function ClothingItem({ item, onHandleSetFavorite }) {
     </li>
   );
 }
+
+// TODO
+// add upload image and show image
