@@ -125,7 +125,16 @@ export const PROJECTS = [
     slug: "closet-tracker",
     title: "Closet-Tracker",
     category:
-      "State, Props, Forms, Arrays, map, filter, sort, Search, Rendering, Styling, Components",
+      "State, Props, Forms, Arrays, map, filter, sort, Search, Rendering",
+    learn: "controlled inputs",
+    skills: "state change",
+    img: img1,
+  },
+  {
+    id: 15,
+    slug: "expense-tracker",
+    title: "Expense-Tracker",
+    category: "State, Props, Forms, Arrays, map, filter, sort, Search, reduce",
     learn: "controlled inputs",
     skills: "state change",
     img: img1,
