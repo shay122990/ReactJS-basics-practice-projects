@@ -1,0 +1,151 @@
+.expenseContainer {
+  min-height: 100vh;
+  padding: 3rem;
+  background: linear-gradient(to bottom, #f8fafc, #eef2f7);
+  font-family: Inter, system-ui, sans-serif;
+  color: #1f2937;
+}
+
+.expenseContainer form {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.expenseContainer input,
+.expenseContainer select {
+  padding: 0.85rem 1rem;
+  border: 1px solid #dbe3ee;
+  border-radius: 10px;
+  background: white;
+  font-size: 0.95rem;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.expenseContainer input:focus,
+.expenseContainer select:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.08);
+}
+
+.expenseContainer button {
+  border: none;
+  border-radius: 10px;
+  background: #4f46e5;
+  color: white;
+  font-weight: 600;
+  padding: 0.85rem 1.2rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.expenseContainer button:hover {
+  transform: translateY(-2px);
+}
+
+.expenseContainer > input,
+.expenseContainer > select {
+  margin-bottom: 1rem;
+}
+
+.expenseContainer > input {
+  width: 100%;
+  max-width: 500px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.stats p {
+  margin: 0;
+  background: white;
+  border: 1px solid #dbe3ee;
+  border-radius: 16px;
+  padding: 1.25rem;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #dbe3ee;
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+li {
+  display: grid;
+  grid-template-columns: 180px 1fr 140px;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #edf2f7;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+li:nth-child(even) {
+  background: #fafcff;
+}
+
+li:hover {
+  background: #f3f6ff;
+}
+
+li h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #4f46e5;
+}
+
+li p {
+  margin: 0;
+  color: #475569;
+}
+
+li p:last-child {
+  justify-self: end;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+@media (max-width: 900px) {
+  .expenseContainer {
+    padding: 1.5rem;
+  }
+
+  .expenseContainer form {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  li {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  li p:last-child {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 600px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}

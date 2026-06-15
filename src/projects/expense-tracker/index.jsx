@@ -34,71 +34,57 @@ const initialExpenses = [
 ];
 console.log(initialExpenses);
 
-// ExpenseTracker
-// ├── ExpenseForm
-// ├── SearchBar
-// ├── CategoryFilter
-// ├── SortControls
-// ├── Stats
-// └── ExpenseList
-//     └── ExpenseItem
-
-// category filter
-// All;
-// Food;
-// Entertainment;
-// Health;
-// Transport;
-
-// sort controls
-// Default
-// Highest Amount
-// Lowest Amount
-// A-Z
-
-// stats
-// Total Expenses
-// Total Categories
-// Most Expensive Expense
-// Total Amount Spent
-
-const ExpenseTracker = () => {
+export default function ExpenseTracker() {
   return (
     <div className={styles.expenseContainer}>
       <ExpenseForm />
-      <SearchBar />
-      <CategoryFilter />
-      <SortControls />
+
+      <div className={styles.controls}>
+        <SearchBar />
+        <CategoryFilter />
+        <SortControls />
+      </div>
+
       <Stats />
       <ExpenseList />
     </div>
   );
-};
+}
 
 function ExpenseForm() {
   return (
-    <form action="">
-      <input type="text" placeholder="Description" />
-      <input type="text" placeholder="Amount" />
-      <select>
+    <form className={styles.form}>
+      <input className={styles.input} type="text" placeholder="Description" />
+
+      <input className={styles.input} type="text" placeholder="Amount" />
+
+      <select className={styles.select}>
         <option value="Food">Food</option>
         <option value="Entertainment">Entertainment</option>
         <option value="Health">Health</option>
         <option value="Transport">Transport</option>
       </select>
 
-      <button type="submit">Add Expense</button>
+      <button className={styles.button} type="submit">
+        Add Expense
+      </button>
     </form>
   );
 }
 
 function SearchBar() {
-  return <input type="text" placeholder="Search expense..." />;
+  return (
+    <input
+      className={styles.searchInput}
+      type="text"
+      placeholder="Search expense..."
+    />
+  );
 }
 
 function CategoryFilter() {
   return (
-    <select>
+    <select className={styles.select}>
       <option value="All">All</option>
       <option value="Food">Food</option>
       <option value="Entertainment">Entertainment</option>
@@ -110,7 +96,7 @@ function CategoryFilter() {
 
 function SortControls() {
   return (
-    <select>
+    <select className={styles.select}>
       <option value="default">Default</option>
       <option value="highest">Highest Amount</option>
       <option value="lowest">Lowest Amount</option>
@@ -121,18 +107,18 @@ function SortControls() {
 
 function Stats() {
   return (
-    <div>
+    <div className={styles.stats}>
       <p>Total Expenses: 100</p>
-      <p>Total Categories: </p>
-      <p>Most Expensive Expense: </p>
-      <p>Total Amount Spent: </p>
+      <p>Total Categories:</p>
+      <p>Most Expensive Expense:</p>
+      <p>Total Amount Spent:</p>
     </div>
   );
 }
 
 function ExpenseList() {
   return (
-    <ul>
+    <ul className={styles.expenseList}>
       {initialExpenses.map((item) => (
         <ExpenseItem key={item.id} item={item} />
       ))}
@@ -142,12 +128,12 @@ function ExpenseList() {
 
 function ExpenseItem({ item }) {
   return (
-    <li>
-      <h3> {item.category}</h3>
-      <p>Description: {item.description}</p>
-      <p>Amount: {item.amount}</p>
+    <li className={styles.expenseItem}>
+      <h3 className={styles.category}>{item.category}</h3>
+
+      <p className={styles.description}>Description: {item.description}</p>
+
+      <p className={styles.amount}>AED {item.amount}</p>
     </li>
   );
 }
-
-export default ExpenseTracker;
