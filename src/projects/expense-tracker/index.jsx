@@ -1,4 +1,5 @@
 import styles from "./ExpenseTracker.module.css";
+import { useState } from "react";
 
 const initialExpenses = [
   {
@@ -22,7 +23,7 @@ const initialExpenses = [
   {
     id: 4,
     description: "Petrol",
-    amount: 150,
+    amount: 350,
     category: "Transport",
   },
   {
@@ -32,38 +33,120 @@ const initialExpenses = [
     category: "Food",
   },
 ];
-console.log(initialExpenses);
 
 export default function ExpenseTracker() {
+  const [expenses, setExpenses] = useState(initialExpenses);
+  const [search, setSearch] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [sort, setSort] = useState("default");
+
+  console.log(expenses);
+  function handleAddExpense(exp) {
+    setExpenses((expenses) => [...expenses, exp]);
+  }
+
+  const searchedExpenses = expenses.filter(
+    (expense) =>
+      expense.description.toLowerCase().includes(search.toLowerCase()) ||
+      expense.amount.toString().includes(search) ||
+      expense.category.toLowerCase().includes(search.toLowerCase()),
+  );
+
+  const filteredCategory = searchedExpenses.filter(
+    (expense) =>
+      selectedCategory === "All" || expense.category === selectedCategory,
+  );
+
+  let sortedExpenses = filteredCategory.slice();
+
+  if (sort === "a-z") {
+    sortedExpenses.sort((a, b) => a.category.localeCompare(b.category));
+  }
+
+  if (sort === "highest") {
+    sortedExpenses.sort((a, b) => b.amount - a.amount);
+  }
+
+  if (sort === "lowest") {
+    sortedExpenses.sort((a, b) => a.amount - b.amount);
+  }
+
   return (
     <div className={styles.expenseContainer}>
-      <ExpenseForm />
+      <ExpenseForm onHandleAddExpense={handleAddExpense} />
 
       <div className={styles.controls}>
-        <SearchBar />
-        <CategoryFilter />
-        <SortControls />
+        <SearchBar search={search} setSearch={setSearch} />
+        <CategoryFilter
+          category={selectedCategory}
+          setCategory={setSelectedCategory}
+          expenses={expenses}
+        />
+        <SortControls sort={sort} setSort={setSort} />
       </div>
 
-      <Stats />
-      <ExpenseList />
+      <Stats expenses={expenses} />
+      <ExpenseList expenses={sortedExpenses} />
     </div>
   );
 }
 
-function ExpenseForm() {
+function ExpenseForm({ onHandleAddExpense }) {
+  const [description, setDescription] = useState("");
+  const [amount, setAmount] = useState("");
+  const [category, setCategory] = useState("");
+
+  const capitalize = (str) => {
+    if (!str) return "";
+    return str
+      .trim()
+      .split(/\s+/)
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!description.trim() || !amount.trim()) return;
+
+    const id = crypto.randomUUID();
+    const newExpense = {
+      id,
+      description: capitalize(description.trim()),
+      amount: Number(amount),
+      category: capitalize(category.trim()),
+    };
+
+    onHandleAddExpense(newExpense);
+
+    setDescription("");
+    setAmount("");
+    setCategory("");
+  }
+
   return (
-    <form className={styles.form}>
-      <input className={styles.input} type="text" placeholder="Description" />
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <input
+        className={styles.input}
+        type="text"
+        placeholder="Description"
+        onChange={(e) => setDescription(e.target.value)}
+      />
 
-      <input className={styles.input} type="text" placeholder="Amount" />
+      <input
+        className={styles.input}
+        type="text"
+        placeholder="Amount"
+        onChange={(e) => setAmount(e.target.value)}
+      />
 
-      <select className={styles.select}>
-        <option value="Food">Food</option>
-        <option value="Entertainment">Entertainment</option>
-        <option value="Health">Health</option>
-        <option value="Transport">Transport</option>
-      </select>
+      <input
+        className={styles.input}
+        type="text"
+        placeholder="Category"
+        onChange={(e) => setCategory(e.target.value)}
+      ></input>
 
       <button className={styles.button} type="submit">
         Add Expense
@@ -72,31 +155,45 @@ function ExpenseForm() {
   );
 }
 
-function SearchBar() {
+function SearchBar({ search, setSearch }) {
   return (
     <input
       className={styles.searchInput}
       type="text"
       placeholder="Search expense..."
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
     />
   );
 }
+function CategoryFilter({ category, setCategory, expenses }) {
+  const categories = [
+    "All",
+    ...new Set(expenses.map((expense) => expense.category)),
+  ];
 
-function CategoryFilter() {
   return (
-    <select className={styles.select}>
-      <option value="All">All</option>
-      <option value="Food">Food</option>
-      <option value="Entertainment">Entertainment</option>
-      <option value="Health">Health</option>
-      <option value="Transport">Transport</option>
+    <select
+      className={styles.select}
+      value={category}
+      onChange={(e) => setCategory(e.target.value)}
+    >
+      {categories.map((cat) => (
+        <option key={cat} value={cat}>
+          {cat}
+        </option>
+      ))}
     </select>
   );
 }
 
-function SortControls() {
+function SortControls({ sort, setSort }) {
   return (
-    <select className={styles.select}>
+    <select
+      className={styles.select}
+      value={sort}
+      onChange={(e) => setSort(e.target.value)}
+    >
       <option value="default">Default</option>
       <option value="highest">Highest Amount</option>
       <option value="lowest">Lowest Amount</option>
@@ -105,21 +202,27 @@ function SortControls() {
   );
 }
 
-function Stats() {
+function Stats({ expenses }) {
+  const total = expenses.length;
+  const uniqueCategories = new Set(expenses.map((cat) => cat.category));
+  const totalCategories = uniqueCategories.size;
+  const mostExpensive = Math.max(...expenses.map((am) => am.amount));
+  const totalSpent = expenses.reduce((acc, cur) => acc + cur.amount, 0);
+
   return (
     <div className={styles.stats}>
-      <p>Total Expenses: 100</p>
-      <p>Total Categories:</p>
-      <p>Most Expensive Expense:</p>
-      <p>Total Amount Spent:</p>
+      <p>Total Expenses: {total}</p>
+      <p>Total Categories: {totalCategories}</p>
+      <p>Most Expensive Expense: {mostExpensive}</p>
+      <p>Total Amount Spent: {totalSpent}</p>
     </div>
   );
 }
 
-function ExpenseList() {
+function ExpenseList({ expenses }) {
   return (
     <ul className={styles.expenseList}>
-      {initialExpenses.map((item) => (
+      {expenses.map((item) => (
         <ExpenseItem key={item.id} item={item} />
       ))}
     </ul>
