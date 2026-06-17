@@ -1,149 +1,297 @@
 .container {
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 2rem auto;
   padding: 2rem;
   min-height: 100vh;
-  background: #0f172a;
-  color: #f8fafc;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(0, 255, 136, 0.15),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(0, 140, 255, 0.15),
+      transparent 30%
+    ),
+    #0d1117;
+  color: #fff;
 }
 
-.controls {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
+/* FORM */
 
 .form {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr auto;
-  gap: 0.75rem;
-  background: #1e293b;
-  padding: 1rem;
-  border-radius: 16px;
-  border: 1px solid #334155;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .form p {
-  grid-column: 1 / -1;
-  margin: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.25rem;
   font-weight: 700;
+  color: #00ff88;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
 }
 
 .form input {
-  padding: 0.85rem;
-  border: 1px solid #475569;
-  border-radius: 10px;
-  background: #0f172a;
-  color: #f8fafc;
+  flex: 1;
+  min-width: 180px;
+
+  padding: 0.9rem 1rem;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  color: white;
+  font-size: 1rem;
+
+  transition: all 0.25s ease;
 }
 
 .form input:focus {
   outline: none;
-  border-color: #22c55e;
+  border-color: #00ff88;
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
 }
 
 .form button {
+  padding: 0.95rem 1.5rem;
+
   border: none;
-  border-radius: 10px;
-  background: #22c55e;
-  color: white;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #00ff88, #00d9ff);
+
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+
   cursor: pointer;
-  font-weight: 600;
+
+  transition: transform 0.2s ease;
 }
 
-.searchInput,
-.sortSelect {
-  padding: 0.85rem 1rem;
-  border-radius: 10px;
-  border: 1px solid #475569;
-  background: #1e293b;
-  color: #f8fafc;
-}
-
-.searchInput {
-  flex: 1;
-  min-width: 220px;
-}
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
-}
-
-.stats p {
-  margin: 0;
-  padding: 1rem;
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 14px;
-  text-align: center;
-  font-weight: 600;
-}
-
-.workoutList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 1rem;
-}
-
-.workoutCard {
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 16px;
-  padding: 1rem;
-  transition: 0.2s ease;
-}
-
-.workoutCard:hover {
+.form button:hover {
   transform: translateY(-2px);
 }
 
-.workoutCard p {
-  margin: 0.4rem 0;
+/* SEARCH + SORT */
+
+.searchInput,
+.sortSelect {
+  width: 100%;
+  padding: 1rem;
+
+  margin-bottom: 1rem;
+
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+
+  font-size: 1rem;
 }
+
+.searchInput:focus,
+.sortSelect:focus {
+  outline: none;
+  border-color: #00ff88;
+}
+
+/* STATS */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+
+  margin: 2rem 0;
+}
+
+.stats p {
+  padding: 1.5rem;
+
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* WORKOUT GRID */
+
+.workoutList {
+  list-style: none;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 1.5rem;
+
+  padding: 0;
+  margin: 0;
+}
+
+/* CARD */
+
+.workoutCard {
+  position: relative;
+
+  padding: 1.5rem;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+
+  border-radius: 24px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.workoutCard:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 15px 35px rgba(0, 255, 136, 0.15),
+    0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.workoutCard p {
+  margin: 0.75rem 0;
+  font-size: 1rem;
+}
+
+.workoutCard p:first-child {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #00ff88;
+}
+
+/* COMPLETED */
 
 .completed {
-  border-color: #22c55e;
-  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(0, 255, 136, 0.4);
+
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 136, 0.12),
+    rgba(0, 255, 136, 0.03)
+  );
 }
 
-.completed p:first-child {
-  text-decoration: line-through;
+.completed::before {
+  content: "✓ COMPLETED";
+
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  padding: 0.4rem 0.8rem;
+
+  border-radius: 999px;
+
+  background: #00ff88;
+  color: #000;
+
+  font-size: 0.75rem;
+  font-weight: 800;
 }
+
+/* BUTTON */
 
 .actionButton {
-  margin-top: 0.75rem;
-  padding: 0.75rem 1rem;
+  width: 100%;
+
+  margin-top: 1rem;
+  padding: 1rem;
+
   border: none;
-  border-radius: 10px;
-  background: #22c55e;
-  color: white;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #00ff88, #00d9ff);
+
+  color: #000;
+  font-size: 1rem;
+  font-weight: 700;
+
   cursor: pointer;
-  font-weight: 600;
+
+  transition: all 0.25s ease;
 }
 
-.actionButton:hover,
-.form button:hover {
-  opacity: 0.9;
+.actionButton:hover {
+  transform: scale(1.02);
 }
 
-@media (max-width: 700px) {
-  .form {
-    grid-template-columns: 1fr;
+.completed .actionButton {
+  background: #1f2937;
+  color: #00ff88;
+  border: 1px solid #00ff88;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
   }
 
-  .controls {
+  .form {
     flex-direction: column;
   }
 
-  .searchInput,
-  .sortSelect {
+  .form input,
+  .form button {
     width: 100%;
+  }
+
+  .workoutList {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .workoutCard {
+    padding: 1.25rem;
+  }
+
+  .workoutCard p:first-child {
+    font-size: 1.2rem;
+  }
+
+  .stats p {
+    padding: 1rem;
   }
 }

@@ -76,7 +76,7 @@ export default Steps;
 
 function StepMessage({ step, children }) {
   return (
-    <div className="message">
+    <div className={styles.message}>
       <h3>Step {step}:</h3>
       {children}
     </div>

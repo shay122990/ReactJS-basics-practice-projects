@@ -232,11 +232,9 @@ function ExpenseList({ expenses }) {
 function ExpenseItem({ item }) {
   return (
     <li className={styles.expenseItem}>
-      <h3 className={styles.category}>{item.category}</h3>
-
-      <p className={styles.description}>Description: {item.description}</p>
-
-      <p className={styles.amount}>AED {item.amount}</p>
+      <div className={styles.category}>{item.category}</div>
+      <div className={styles.description}>{item.description}</div>
+      <div className={styles.amount}>AED {item.amount}</div>
     </li>
   );
 }

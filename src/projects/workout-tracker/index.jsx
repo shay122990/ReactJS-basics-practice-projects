@@ -135,7 +135,7 @@ function WorkoutItem({ workout, onHandleIsCompleted }) {
         workout.completed ? styles.completed : ""
       }`}
     >
-      <p>Name: {workout.name}</p>
+      <h3>{workout.name}</h3>
       <p>Sets: {workout.sets}</p>
       <p>Reps: {workout.reps}</p>
       <button

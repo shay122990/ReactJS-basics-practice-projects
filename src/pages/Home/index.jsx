@@ -10,7 +10,7 @@ export default function Home() {
     const n = q.toLowerCase();
 
     return PROJECTS.filter((p) =>
-      [p.title, p.category, p.learn, p.skills]
+      [p.title, p.category, p.learn, ...p.skills]
         .join(" ")
         .toLowerCase()
         .includes(n),
@@ -19,11 +19,14 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
+      {" "}
       <div className={styles.container}>
+        {" "}
         <section className={styles.hero}>
+          {" "}
           <div>
+            {" "}
             <p className={styles.kicker}>Frontend Experiments Archive</p>
-
             <h1 className={styles.heading}>
               React
               <br />
@@ -32,7 +35,6 @@ export default function Home() {
               Projects
             </h1>
           </div>
-
           <div className={styles.heroRight}>
             <p className={styles.description}>
               A growing collection of React projects exploring fundamentals,
@@ -48,7 +50,6 @@ export default function Home() {
             />
           </div>
         </section>
-
         <section className={styles.grid}>
           {filtered.map((p) => (
             <Link key={p.id} to={`/projects/${p.slug}`} className={styles.card}>
@@ -60,6 +61,14 @@ export default function Home() {
                 <h3 className={styles.title}>{p.title}</h3>
 
                 <p className={styles.meta}>{p.learn}</p>
+
+                <div className={styles.skills}>
+                  {p.skills.map((skill) => (
+                    <span key={skill} className={styles.skill}>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </Link>
           ))}
