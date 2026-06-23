@@ -191,4 +191,13 @@ export const PROJECTS = [
     skills: ["search", "rating", "toggle movie"],
     img: expenses,
   },
+  {
+    id: 17,
+    slug: "tabbed",
+    title: "Tabbed",
+    category: "Component Architecture",
+    learn: "Toggle different tabs",
+    skills: ["show/hide", "undo", "toggle"],
+    img: expenses,
+  },
 ];
