@@ -1,16 +1,5 @@
-import "./styles.css";
-
 import { useState } from "react";
-import PropTypes from "prop-types";
-
-Counter.propTypes = {
-  maxLength: PropTypes.number,
-  strict: PropTypes.bool,
-  warningThreshold: PropTypes.number,
-  warningColor: PropTypes.string,
-  dangerColor: PropTypes.string,
-  onLimitReached: PropTypes.func,
-};
+import styles from "./CharacterCounter.module.css";
 
 function Counter({
   maxLength = 100,
@@ -46,27 +35,21 @@ function Counter({
   if (isOverLimit) color = dangerColor;
 
   return (
-    <div
-      style={{
-        maxWidth: "400px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "12px",
-      }}
-    >
+    <div className={styles.counter}>
       <textarea
+        className={styles.textarea}
         value={text}
         onChange={handleChange}
         rows={5}
         placeholder="Start typing..."
       />
 
-      <p style={{ margin: 0, color }}>
+      <p className={styles.count} style={{ color }}>
         {count} / {maxLength}
       </p>
 
       {!strict && isOverLimit && (
-        <p style={{ margin: 0, color: dangerColor }}>
+        <p className={styles.warning} style={{ color: dangerColor }}>
           {Math.abs(remaining)} characters over limit
         </p>
       )}
@@ -76,7 +59,7 @@ function Counter({
 
 export default function CharacterCounter() {
   return (
-    <div className="App">
+    <div className={styles.container}>
       <Counter
         maxLength={120}
         onLimitReached={() => {

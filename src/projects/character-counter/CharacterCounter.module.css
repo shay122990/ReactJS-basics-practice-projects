@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: radial-gradient(circle at center, #2a2a2a 0%, #161616 70%);
+  font-family: "Special Elite", monospace;
+}
+
+.counter {
+  width: min(90vw, 700px);
+  background: #f4efe2;
+  border-radius: 4px;
+  padding: 3rem;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.45),
+    0 2px 0 rgba(255, 255, 255, 0.3) inset;
+  position: relative;
+}
+
+/* subtle paper aging */
+.counter::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 6px 6px;
+  pointer-events: none;
+}
+
+.textarea {
+  width: 100%;
+  display: block;
+  min-height: 350px;
+  resize: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0 1rem 0 2rem;
+  border-left: 3px solid rgba(180, 40, 40, 0.5);
+  color: #1c1c1c;
+  font-family: inherit;
+  font-size: 1.2rem;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  overflow-wrap: break-word;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 2.95rem,
+    rgba(0, 0, 0, 0.08) 2.95rem,
+    rgba(0, 0, 0, 0.08) 3rem
+  );
+}
+
+.textarea::placeholder {
+  color: #8b8175;
+}
+
+.textarea:focus {
+  transform: translateY(-1px);
+}
+
+.count {
+  margin-top: 1.5rem;
+  color: #6b5b4b;
+  font-size: 0.95rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.warning {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .counter {
+    padding: 2rem;
+  }
+  .textarea {
+    min-height: 280px;
+    font-size: 1rem;
+  }
+}
