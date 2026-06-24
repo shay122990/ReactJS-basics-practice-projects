@@ -200,4 +200,13 @@ export const PROJECTS = [
     skills: ["show/hide", "undo", "toggle"],
     img: expenses,
   },
+  {
+    id: 18,
+    slug: "character-counter",
+    title: "Character Counter",
+    category: "State Management",
+    learn: "Derived state, conditional rendering UI",
+    skills: ["controlled values", "state", "default props"],
+    img: expenses,
+  },
 ];
