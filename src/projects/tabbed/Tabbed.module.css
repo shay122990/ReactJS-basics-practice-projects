@@ -1,0 +1,410 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.tabsContainer {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 3vw, 3rem);
+  background: #ece9e1;
+  background-image:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  font-family: Inter, sans-serif;
+  overflow: hidden;
+}
+
+.card {
+  width: min(1200px, 100%);
+  min-height: clamp(520px, 80vh, 760px);
+  display: grid;
+  grid-template-columns: minmax(170px, 220px) 1fr;
+  background: #faf8f3;
+  border: 3px solid #111;
+  box-shadow: 18px 18px 0 #111;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border: 3px solid #111;
+  border-radius: 50%;
+  top: -110px;
+  right: -110px;
+  opacity: 0.08;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: #ffcb47;
+  left: -90px;
+  bottom: -90px;
+  transform: rotate(45deg);
+  opacity: 0.3;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  border-right: 3px solid #111;
+  background: #faf8f3;
+  z-index: 2;
+}
+
+.tab {
+  appearance: none;
+  border: none;
+  border-bottom: 3px solid #111;
+  background: transparent;
+  cursor: pointer;
+  padding: 1.75rem;
+  text-align: left;
+  transition: 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.tab:last-child {
+  border-bottom: none;
+}
+
+.tab::before {
+  content: "0";
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  font-weight: 700;
+  color: #777;
+}
+
+.tab {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #b8b8b8;
+  line-height: 1;
+}
+
+.tab:hover {
+  background: #111;
+  color: #fff;
+  padding-left: 2.5rem;
+}
+
+.active {
+  background: #ffcb47;
+  color: #111;
+  padding-left: 2.8rem;
+  box-shadow: inset -8px 0 0 #111;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(2rem, 4vw, 4rem);
+  position: relative;
+}
+
+.content h2 {
+  font-size: clamp(2.4rem, 6vw, 5.5rem);
+  line-height: 0.88;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -3px;
+  max-width: 700px;
+  margin-bottom: 2rem;
+}
+
+.content h2::before {
+  content: "SECTION";
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 6px;
+  margin-bottom: 1rem;
+  color: #666;
+  font-weight: 700;
+}
+
+.content p {
+  max-width: 650px;
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 2;
+  color: #444;
+  margin-bottom: 3rem;
+}
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+
+.primaryBtn {
+  border: 3px solid #111;
+  background: #111;
+  color: #fff;
+  padding: 1rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.primaryBtn:hover {
+  background: #ff4f4f;
+  transform: translate(-6px, -6px);
+  box-shadow: 6px 6px 0 #111;
+}
+
+.primaryBtn:active {
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px 0 #111;
+}
+
+.likes {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 3px solid #111;
+  background: #fff;
+}
+
+.likes span {
+  min-width: 70px;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.likes button {
+  width: 48px;
+  height: 48px;
+  border: 3px solid #111;
+  background: #faf8f3;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.likes button:hover {
+  background: #111;
+  color: #fff;
+  transform: translateY(-4px);
+}
+
+.likes button:active {
+  transform: translateY(0);
+}
+
+.undo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.undo button {
+  border: 3px solid #111;
+  background: transparent;
+  padding: 1rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.undo button:hover {
+  background: #111;
+  color: #fff;
+  transform: translate(-5px, -5px);
+  box-shadow: 5px 5px 0 #ffcb47;
+}
+
+.undo button:active {
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px 0 #ffcb47;
+}
+
+@media (max-width: 900px) {
+  .card {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    min-height: auto;
+  }
+
+  .tabs {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-right: none;
+    border-bottom: 3px solid #111;
+    scrollbar-width: none;
+  }
+
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab {
+    flex: 1 0 140px;
+    border-bottom: none;
+    border-right: 3px solid #111;
+    padding: 1.25rem;
+    font-size: 1.4rem;
+  }
+
+  .tab:last-child {
+    border-right: none;
+  }
+
+  .tab:hover {
+    padding-left: 1.75rem;
+  }
+
+  .active {
+    padding-left: 2rem;
+    box-shadow: inset 0 -6px 0 #111;
+  }
+
+  .content {
+    padding: 2rem;
+  }
+
+  .content h2 {
+    font-size: clamp(2.2rem, 8vw, 4rem);
+    letter-spacing: -2px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .likes {
+    justify-content: center;
+  }
+
+  .undo {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 1rem;
+  }
+
+  .card {
+    width: 100%;
+    box-shadow: 10px 10px 0 #111;
+  }
+
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: visible;
+  }
+
+  .tab {
+    flex: auto;
+    border-right: 3px solid #111;
+    border-bottom: 3px solid #111;
+    font-size: 1.25rem;
+    padding: 1.1rem;
+  }
+
+  .tab:nth-child(2n) {
+    border-right: none;
+  }
+
+  .tab:nth-last-child(-n + 2) {
+    border-bottom: none;
+  }
+
+  .tab:hover {
+    transform: none;
+    padding-left: 1.1rem;
+  }
+
+  .active {
+    transform: none;
+    padding-left: 1.1rem;
+    box-shadow: inset 0 -6px 0 #111;
+  }
+
+  .content {
+    padding: 1.5rem;
+  }
+
+  .content h2 {
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .content p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .primaryBtn {
+    width: 100%;
+  }
+
+  .likes {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .likes span {
+    width: 100%;
+    text-align: center;
+  }
+
+  .likes button {
+    flex: 1;
+    height: 52px;
+  }
+
+  .undo {
+    margin-top: 2rem;
+  }
+
+  .undo button {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .card {
+    max-width: 1300px;
+  }
+
+  .content h2 {
+    max-width: 800px;
+  }
+
+  .content p {
+    max-width: 750px;
+  }
+}

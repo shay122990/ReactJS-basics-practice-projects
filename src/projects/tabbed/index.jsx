@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./Tabbed.module.css";
 
 const content = [
   {
@@ -9,20 +10,20 @@ const content = [
   {
     summary: "State management is like giving state a home",
     details:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     summary: "We can think of props as the component API",
     details:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
 ];
 
-export default function App() {
+export default function TabsComponent() {
   return (
-    <div>
+    <main className={styles.tabsContainer}>
       <Tabbed content={content} />
-    </div>
+    </main>
   );
 }
 
@@ -30,8 +31,8 @@ function Tabbed({ content }) {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div>
-      <div className="tabs">
+    <div className={styles.card}>
+      <div className={styles.tabs}>
         <Tab num={0} activeTab={activeTab} onClick={setActiveTab} />
         <Tab num={1} activeTab={activeTab} onClick={setActiveTab} />
         <Tab num={2} activeTab={activeTab} onClick={setActiveTab} />
@@ -39,7 +40,7 @@ function Tabbed({ content }) {
       </div>
 
       {activeTab <= 2 ? (
-        <TabContent item={content.at(activeTab)} />
+        <TabContent item={content[activeTab]} />
       ) : (
         <DifferentContent />
       )}
@@ -50,7 +51,7 @@ function Tabbed({ content }) {
 function Tab({ num, activeTab, onClick }) {
   return (
     <button
-      className={activeTab === num ? "tab active" : "tab"}
+      className={`${styles.tab} ${activeTab === num ? styles.active : ""}`}
       onClick={() => onClick(num)}
     >
       Tab {num + 1}
@@ -63,29 +64,49 @@ function TabContent({ item }) {
   const [likes, setLikes] = useState(0);
 
   function handleInc() {
-    setLikes(likes + 1);
+    setLikes((likes) => likes + 1);
+  }
+
+  function handleTriple() {
+    setLikes((likes) => likes + 3);
+  }
+
+  function handleUndo() {
+    setLikes(0);
+    setShowDetails(true);
+  }
+
+  function handleUndoLater() {
+    setTimeout(handleUndo, 2000);
   }
 
   return (
-    <div className="tab-content">
-      <h4>{item.summary}</h4>
+    <div className={styles.content}>
+      <h2>{item.summary}</h2>
+
       {showDetails && <p>{item.details}</p>}
 
-      <div className="tab-actions">
-        <button onClick={() => setShowDetails((h) => !h)}>
-          {showDetails ? "Hide" : "Show"} details
+      <div className={styles.actions}>
+        <button
+          className={styles.primaryBtn}
+          onClick={() => setShowDetails((show) => !show)}
+        >
+          {showDetails ? "Hide Details" : "Show Details"}
         </button>
 
-        <div className="hearts-counter">
+        <div className={styles.likes}>
           <span>{likes} ❤️</span>
+
           <button onClick={handleInc}>+</button>
-          <button>+++</button>
+
+          <button onClick={handleTriple}>+++</button>
         </div>
       </div>
 
-      <div className="tab-undo">
-        <button>Undo</button>
-        <button>Undo in 2s</button>
+      <div className={styles.undo}>
+        <button onClick={handleUndo}>Undo</button>
+
+        <button onClick={handleUndoLater}>Undo in 2s</button>
       </div>
     </div>
   );
@@ -93,8 +114,13 @@ function TabContent({ item }) {
 
 function DifferentContent() {
   return (
-    <div className="tab-content">
-      <h4>I'm a DIFFERENT tab, so I reset state 💣💥</h4>
+    <div className={styles.content}>
+      <h2>I'm a DIFFERENT tab 💣💥</h2>
+
+      <p>
+        This is a different component. When React switches to it, the previous
+        component is removed from the UI, so all of its state is reset.
+      </p>
     </div>
   );
 }
