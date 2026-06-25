@@ -13,6 +13,9 @@ import splitBill from "../assets/project-images/split-bill.jpg";
 import workoutTracker from "../assets/project-images/workout-tracker.jpg";
 import closet from "../assets/project-images/closet.jpg";
 import expenses from "../assets/project-images/expenses.jpg";
+import usePopcorn from "../assets/project-images/usePopcorn.jpg";
+import tabs from "../assets/project-images/tabs.jpg";
+import characterCounter from "../assets/project-images/character-counter.jpg";
 
 // ------------- CATEGORIES
 // Fundamentals
@@ -189,7 +192,7 @@ export const PROJECTS = [
     category: "Lists & Data, API Integration",
     learn: "Tracking watched and rated movies.",
     skills: ["search", "rating", "toggle movie"],
-    img: expenses,
+    img: usePopcorn,
   },
   {
     id: 17,
@@ -198,7 +201,7 @@ export const PROJECTS = [
     category: "Component Architecture",
     learn: "Toggle different tabs",
     skills: ["show/hide", "undo", "toggle"],
-    img: expenses,
+    img: tabs,
   },
   {
     id: 18,
@@ -207,6 +210,6 @@ export const PROJECTS = [
     category: "State Management",
     learn: "Derived state, conditional rendering UI",
     skills: ["controlled values", "state", "default props"],
-    img: expenses,
+    img: characterCounter,
   },
 ];

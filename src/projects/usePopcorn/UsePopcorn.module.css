@@ -8,11 +8,11 @@
   --accent-soft: rgba(255, 77, 77, 0.15);
 }
 
-/* * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-} */
+}
 
 .container {
   font-family: Inter, system-ui, sans-serif;
