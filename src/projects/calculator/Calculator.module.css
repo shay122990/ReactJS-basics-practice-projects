@@ -1,156 +1,156 @@
 .calculator-page {
   min-height: 100vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
-  padding: 24px;
-
-  background:
-    radial-gradient(circle at top left, #ff00cc55, transparent 30%),
-    radial-gradient(circle at bottom right, #3333ff55, transparent 30%),
-    linear-gradient(135deg, #120018, #090b1a 40%, #120018);
-
+  padding: 20px;
+  background: linear-gradient(
+    135deg,
+    #ff9a9e 0%,
+    #fad0c4 25%,
+    #a18cd1 60%,
+    #84fab0 100%
+  );
   overflow: hidden;
+  font-family: Arial, sans-serif;
 }
 
 .calculator {
-  width: min(100%, 380px);
-
+  width: min(100%, 390px);
   padding: 22px;
-
-  border-radius: 32px;
-
-  background: rgba(18, 18, 30, 0.78);
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
-
-  backdrop-filter: blur(20px);
-
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.45),
-    0 0 40px rgba(170, 0, 255, 0.15);
-
+  border-radius: 35px;
+  background: #fff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  border: 6px solid #fff;
   position: relative;
 }
 
 .calculator::before {
   content: "";
-
   position: absolute;
-  inset: 0;
-
-  border-radius: inherit;
-
-  padding: 1px;
-
-  background: linear-gradient(135deg, #ff00cc, #7b61ff, #00e0ff);
-
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-
-  -webkit-mask-composite: xor;
-
-  pointer-events: none;
+  inset: -8px;
+  border-radius: 40px;
+  background: linear-gradient(
+    45deg,
+    #ff6ec4,
+    #7873f5,
+    #4facfe,
+    #43e97b,
+    #ff6ec4
+  );
+  z-index: -1;
+  filter: blur(12px);
+  opacity: 0.8;
 }
 
 .display {
   height: 110px;
-
-  margin-bottom: 20px;
-  padding: 20px;
-
+  margin-bottom: 22px;
+  padding: 18px;
   border-radius: 24px;
-
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.08),
-    rgba(255, 255, 255, 0.02)
-  );
-
+  background: #1d1d2f;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-
-  color: white;
-
-  font-size: 3.8rem;
+  font-size: 3.2rem;
   font-weight: 700;
-
+  color: #6dff8d;
   overflow-x: auto;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+  text-shadow:
+    0 0 8px #6dff8d,
+    0 0 20px #6dff8d;
+}
 
-  box-shadow:
-    inset 0 1px 2px rgba(255, 255, 255, 0.06),
-    inset 0 -4px 12px rgba(0, 0, 0, 0.35);
+.display::-webkit-scrollbar {
+  display: none;
 }
 
 .buttons {
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
-
   gap: 14px;
 }
 
 .btn {
   height: 72px;
-
   border: none;
-  border-radius: 22px;
-
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.12),
-    rgba(255, 255, 255, 0.04)
-  );
-
-  color: white;
-
+  border-radius: 20px;
+  background: linear-gradient(180deg, #ffffff, #ececec);
   font-size: 1.5rem;
   font-weight: 700;
-
+  color: #333;
   cursor: pointer;
-
-  transition:
-    transform 0.12s ease,
-    box-shadow 0.12s ease,
-    background 0.12s ease;
-
+  transition: 0.15s;
   box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.08),
-    0 8px 18px rgba(0, 0, 0, 0.25);
+    0 8px 0 #d4d4d4,
+    0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.12),
-    0 10px 22px rgba(0, 0, 0, 0.35);
+  transform: translateY(-3px);
 }
 
 .btn:active {
-  transform: scale(0.96);
+  transform: translateY(4px);
+  box-shadow: 0 3px 0 #d4d4d4;
 }
 
 .btn-operator {
-  background: linear-gradient(135deg, #ff00cc, #7b61ff);
-
-  color: white;
-
-  box-shadow: 0 10px 22px rgba(123, 97, 255, 0.4);
-}
-
-.btn-operator:hover {
-  box-shadow: 0 14px 28px rgba(123, 97, 255, 0.55);
+  background: linear-gradient(135deg, #ff9f43, #ff6b6b);
+  color: #fff;
+  box-shadow:
+    0 8px 0 #e0564b,
+    0 12px 20px rgba(255, 107, 107, 0.35);
 }
 
 .btn-clear {
   background: linear-gradient(135deg, #ff4d6d, #ff006e);
+  color: #fff;
+  box-shadow:
+    0 8px 0 #c40057,
+    0 12px 20px rgba(255, 0, 110, 0.35);
 }
 
 .btn-zero {
   grid-column: span 2;
+}
+
+@media (max-width: 480px) {
+  .calculator {
+    padding: 18px;
+    border-radius: 28px;
+  }
+
+  .display {
+    height: 90px;
+    font-size: 2.5rem;
+    padding: 15px;
+  }
+
+  .buttons {
+    gap: 10px;
+  }
+
+  .btn {
+    height: 60px;
+    font-size: 1.25rem;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .calculator {
+    padding: 14px;
+  }
+
+  .display {
+    font-size: 2rem;
+    height: 80px;
+  }
+
+  .btn {
+    height: 52px;
+    font-size: 1.1rem;
+  }
 }
