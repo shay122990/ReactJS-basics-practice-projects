@@ -19,13 +19,9 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      {" "}
       <div className={styles.container}>
-        {" "}
         <section className={styles.hero}>
-          {" "}
           <div>
-            {" "}
             <p className={styles.kicker}>Frontend Experiments Archive</p>
             <h1 className={styles.heading}>
               React
@@ -36,18 +32,17 @@ export default function Home() {
             </h1>
           </div>
           <div className={styles.heroRight}>
-            <p className={styles.description}>
-              A growing collection of React projects exploring fundamentals,
-              hooks, UI systems, interaction design, async patterns, and
-              creative frontend experimentation.
-            </p>
-
             <input
               className={styles.input}
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="Search archive..."
             />
+            <p className={styles.description}>
+              A growing collection of React projects exploring fundamentals,
+              hooks, UI systems, interaction design, async patterns, and
+              creative frontend experimentation.
+            </p>
           </div>
         </section>
         <section className={styles.grid}>
