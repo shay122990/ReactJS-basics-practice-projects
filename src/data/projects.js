@@ -200,7 +200,7 @@ export const PROJECTS = [
     title: "Tabbed",
     category: "Component Architecture",
     learn: "Toggle different tabs",
-    skills: ["show/hide", "undo", "toggle"],
+    skills: ["show/hide", "undo", "toggle", "side effects", "batching"],
     img: tabs,
   },
   {

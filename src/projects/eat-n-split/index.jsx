@@ -85,6 +85,7 @@ export default function EatNSplit() {
 
       {selectedFriend && (
         <FormSplitBill
+          key={selectedFriend.id}
           selectedFriend={selectedFriend}
           onSplitBill={handleSplitBill}
         />
