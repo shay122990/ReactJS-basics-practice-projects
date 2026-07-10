@@ -191,7 +191,13 @@ export const PROJECTS = [
     title: "usePopcorn",
     category: "Lists & Data, API Integration",
     learn: "Tracking watched and rated movies.",
-    skills: ["search", "rating", "toggle movie", "useEffect"],
+    skills: [
+      "search",
+      "rating",
+      "toggle movie",
+      "useEffect",
+      "AbortController",
+    ],
     img: usePopcorn,
   },
   {
