@@ -1,0 +1,136 @@
+.converter {
+  max-width: 720px;
+  margin: 4rem auto;
+  padding: 2.5rem;
+  border-radius: 30px;
+  background: linear-gradient(
+    145deg,
+    #ff6ec7 0%,
+    #ff9671 20%,
+    #ffc75f 45%,
+    #00c9ff 75%,
+    #845ef7 100%
+  );
+  box-shadow:
+    0 25px 60px rgba(132, 94, 247, 0.4),
+    0 0 80px rgba(255, 110, 199, 0.3);
+  color: white;
+}
+
+.title {
+  margin: 0 0 2rem;
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 0 #000;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 150px auto 150px;
+  gap: 1rem;
+  align-items: center;
+}
+
+.input,
+.select {
+  padding: 1rem 1.2rem;
+  border: none;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #3d0066;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.25);
+}
+
+.input::placeholder {
+  color: #7d5fff;
+}
+
+.input:hover,
+.select:hover {
+  transform: translateY(-4px) rotate(-1deg);
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+  transform: scale(1.04);
+  box-shadow:
+    0 0 0 5px rgba(255, 255, 255, 0.5),
+    0 0 25px #00e5ff;
+}
+
+.arrow {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #fff700;
+  text-shadow:
+    0 0 10px #fff700,
+    0 0 25px #ff8800;
+  animation: bounce 1.2s infinite alternate;
+}
+
+.result {
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  text-align: center;
+}
+
+.label {
+  display: inline-block;
+  padding: 0.45rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 999px;
+  background: #fff700;
+  color: #3d0066;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.result h3 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 900;
+  color: white;
+  text-shadow:
+    2px 2px 0 #000,
+    0 0 15px #00f5ff;
+}
+
+.result p {
+  margin-top: 0.8rem;
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(10px);
+  }
+}
+
+@media (max-width: 700px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+
+  .arrow {
+    transform: rotate(90deg);
+    animation: none;
+  }
+}

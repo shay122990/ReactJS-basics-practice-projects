@@ -16,6 +16,7 @@ import expenses from "../assets/project-images/expenses.jpg";
 import usePopcorn from "../assets/project-images/usePopcorn.jpg";
 import tabs from "../assets/project-images/tabs.jpg";
 import characterCounter from "../assets/project-images/character-counter.jpg";
+import currencyConverter from "../assets/project-images/currency-converter.jpg";
 
 // ------------- CATEGORIES
 // Fundamentals
@@ -33,7 +34,7 @@ export const PROJECTS = [
     title: "Counter & Click Tracker",
     category: "Fundamentals",
     learn:
-      "Component composition, JSX, props, state updates and event handling",
+      "A simple counter application for incrementing, decrementing and tracking user interactions.",
     skills: ["useState", "events", "props", "jsx"],
     img: counter,
   },
@@ -43,7 +44,7 @@ export const PROJECTS = [
     title: "Todo App",
     category: "Lists & Data",
     learn:
-      "CRUD operations, rendering lists, updating arrays and conditional UI",
+      "A task manager for creating, editing, completing and removing todos.",
     skills: [
       "map",
       "filter",
@@ -205,7 +206,7 @@ export const PROJECTS = [
     slug: "tabbed",
     title: "Tabbed",
     category: "Component Architecture",
-    learn: "Toggle different tabs",
+    learn: "A reusable tab navigation interface.",
     skills: ["show/hide", "undo", "toggle", "side effects", "batching"],
     img: tabs,
   },
@@ -214,8 +215,23 @@ export const PROJECTS = [
     slug: "character-counter",
     title: "Character Counter",
     category: "State Management",
-    learn: "Derived state, conditional rendering UI",
+    learn: "A live character and word counting utility.",
     skills: ["controlled values", "state", "default props"],
     img: characterCounter,
+  },
+  {
+    id: 19,
+    slug: "currency-converter",
+    title: "Currency Converter",
+    category: "API Integration",
+    learn: "A real-time currency converter using live exchange rates.",
+    skills: [
+      "Dependency Arrays",
+      "AbortController",
+      "Cleanup Functions",
+      "API Integration",
+      "Conditional Rendering",
+    ],
+    img: currencyConverter,
   },
 ];
