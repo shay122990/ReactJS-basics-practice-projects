@@ -197,6 +197,7 @@ export const PROJECTS = [
       "rating",
       "toggle movie",
       "useEffect",
+      "useRef",
       "AbortController",
     ],
     img: usePopcorn,

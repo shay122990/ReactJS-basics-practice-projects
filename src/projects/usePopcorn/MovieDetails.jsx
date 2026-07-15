@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./UsePopcorn.module.css";
 import Loader from "./Loader";
 import StarRating from "./StarRating";
@@ -13,6 +13,12 @@ export default function MovieDetails({
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [userRating, setUserRating] = useState("");
+
+  const countRef = useRef(0);
+
+  useEffect(() => {
+    if (userRating) countRef.current = countRef.current + 1;
+  }, [userRating]);
 
   const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId);
   const watchedUserRating = watched.find(
@@ -41,6 +47,7 @@ export default function MovieDetails({
       imdbRating: Number(imdbRating),
       runtime: parseInt(runtime, 10) || 0, // if runtime is "N/A"
       userRating,
+      countRatingDecisions: countRef.current,
     };
     console.log(movie);
     console.log(runtime);
