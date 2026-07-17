@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import styles from "./UsePopcorn.module.css";
 import Loader from "./Loader";
 import StarRating from "./StarRating";
+import { useKey } from "./useKey";
+
 const KEY = "5718383c";
 
 export default function MovieDetails({
@@ -56,19 +58,7 @@ export default function MovieDetails({
     onCloseMovie();
   }
 
-  useEffect(() => {
-    function callback(e) {
-      if (e.code === "Escape") {
-        onCloseMovie();
-        console.log("closing");
-      }
-    }
-    document.addEventListener("keydown", callback);
-
-    return function () {
-      document.removeEventListener("keydown", callback);
-    };
-  }, [onCloseMovie]);
+  useKey("Escape", onCloseMovie);
 
   useEffect(() => {
     async function getMovieDetails() {

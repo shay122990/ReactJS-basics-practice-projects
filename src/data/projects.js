@@ -191,7 +191,7 @@ export const PROJECTS = [
     slug: "usePopcorn",
     title: "usePopcorn",
     category: "Lists & Data, API Integration",
-    learn: "Tracking watched and rated movies.",
+    learn: "Tracking watched and rated movies. Creating custom hooks",
     skills: [
       "search",
       "rating",
@@ -199,6 +199,7 @@ export const PROJECTS = [
       "useEffect",
       "useRef",
       "AbortController",
+      "custom hooks",
     ],
     img: usePopcorn,
   },
