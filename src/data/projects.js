@@ -236,4 +236,17 @@ export const PROJECTS = [
     ],
     img: currencyConverter,
   },
+  {
+    id: 20,
+    slug: "react-quiz",
+    title: "React Quiz",
+    category: "API Integration, State Management",
+    learn: "Fetching from fake API, using useReducer to create state",
+    skills: [
+      "API Integration",
+      "toggling status",
+      "fetching from local server",
+    ],
+    img: currencyConverter,
+  },
 ];
