@@ -1,4 +1,4 @@
-import styles from "./ReactQuiz.module.css";
+import styles from "../ReactQuiz.module.css";
 
 function Error() {
   return (

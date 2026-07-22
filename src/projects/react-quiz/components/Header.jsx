@@ -1,5 +1,5 @@
-import styles from "./ReactQuiz.module.css";
-import logo from "../../../public/logo512.png";
+import styles from "../ReactQuiz.module.css";
+import logo from "/logo512.png";
 
 function Header() {
   return (

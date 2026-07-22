@@ -1,4 +1,4 @@
-import styles from "./ReactQuiz.module.css";
+import styles from "../ReactQuiz.module.css";
 
 export default function Loader() {
   return (
