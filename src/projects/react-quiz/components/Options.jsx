@@ -2,7 +2,7 @@ import styles from "../ReactQuiz.module.css";
 
 function Options({ question, dispatch, answer }) {
   const hasAnswered = answer !== null;
-  console.log(answer);
+  // console.log(answer);
 
   return (
     <div className={styles.options}>
