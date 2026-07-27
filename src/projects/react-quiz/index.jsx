@@ -91,7 +91,7 @@ export default function ReactQuiz() {
   useEffect(() => {
     async function getQuestions() {
       try {
-        const res = await fetch("http://localhost:8000/questions");
+        const res = await fetch("http://localhost:8001/questions");
         const data = await res.json();
         dispatch({ type: "dataReceived", payload: data });
       } catch (error) {

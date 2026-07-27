@@ -12,7 +12,7 @@ function FinishScreen({ points, maxPossiblePoints, highscore, dispatch }) {
   if (percentage === 0) emoji = "🤦🏻‍♀️";
 
   return (
-    <>
+    <div className={styles.resultContainer}>
       <p className={styles.result}>
         <span>{emoji}</span>
         You scored <strong>{points}</strong> out of {maxPossiblePoints} (
@@ -25,7 +25,7 @@ function FinishScreen({ points, maxPossiblePoints, highscore, dispatch }) {
       >
         Restart quiz
       </button>
-    </>
+    </div>
   );
 }
 

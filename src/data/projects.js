@@ -17,7 +17,8 @@ import usePopcorn from "../assets/project-images/usePopcorn.jpg";
 import tabs from "../assets/project-images/tabs.jpg";
 import characterCounter from "../assets/project-images/character-counter.jpg";
 import currencyConverter from "../assets/project-images/currency-converter.jpg";
-
+import reactQuiz from "../assets/project-images/react-quiz.jpg";
+import neoBank from "../assets/project-images/neo-bank.jpg";
 // ------------- CATEGORIES
 // Fundamentals
 // State Management
@@ -250,6 +251,16 @@ export const PROJECTS = [
       "clearInterval",
       "useReducer",
     ],
-    img: currencyConverter,
+    img: reactQuiz,
+  },
+  {
+    id: 21,
+    slug: "neo-account",
+    title: "Neo Bank Account",
+    category: "State Management",
+    learn:
+      "Using useReducer for action-driven design and predictable state management",
+    skills: ["useReducer"],
+    img: neoBank,
   },
 ];
