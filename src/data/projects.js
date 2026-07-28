@@ -263,4 +263,14 @@ export const PROJECTS = [
     skills: ["useReducer"],
     img: neoBank,
   },
+  {
+    id: 22,
+    slug: "shopping-cart",
+    title: "Shopping Cart",
+    category: "State Management",
+    learn:
+      "Using useReducer for action-driven design and predictable state management",
+    skills: ["useReducer"],
+    img: neoBank,
+  },
 ];
