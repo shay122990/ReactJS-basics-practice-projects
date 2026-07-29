@@ -1,3 +1,4 @@
+import Cart from "./Cart";
 import ProductList from "./ProductList";
 import styles from "./ShoppingCart.module.css";
 import { useReducer } from "react";
@@ -26,6 +27,27 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
+    case "add": {
+      const product = action.payload;
+      const existingItem = state.cart.find((item) => item.id === product.id);
+
+      if (existingItem) {
+        // If item already in cart, map through and increase its quantity
+        return {
+          ...state,
+          cart: state.cart.map((item) =>
+            item.id === product.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item,
+          ),
+        };
+      }
+
+      return {
+        ...state,
+        cart: [...state.cart, { ...product, quantity: 1 }],
+      };
+    }
     default:
       return state;
   }
@@ -35,7 +57,8 @@ function ShoppingCart() {
   console.log(dispatch, cart);
   return (
     <div className={styles.container}>
-      <ProductList products={products} />
+      <ProductList products={products} dispatch={dispatch} />
+      <Cart cart={cart} />
     </div>
   );
 }
