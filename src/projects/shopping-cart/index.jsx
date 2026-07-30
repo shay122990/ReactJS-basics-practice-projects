@@ -48,6 +48,20 @@ function reducer(state, action) {
         cart: [...state.cart, { ...product, quantity: 1 }],
       };
     }
+    case "remove": {
+      const product = action.payload;
+
+      return {
+        ...state,
+        cart: state.cart
+          .map((item) =>
+            item.id === product.id
+              ? { ...item, quantity: item.quantity - 1 }
+              : item,
+          )
+          .filter((item) => item.quantity > 0),
+      };
+    }
     default:
       return state;
   }
@@ -58,7 +72,7 @@ function ShoppingCart() {
   return (
     <div className={styles.container}>
       <ProductList products={products} dispatch={dispatch} />
-      <Cart cart={cart} />
+      <Cart cart={cart} dispatch={dispatch} />
     </div>
   );
 }
