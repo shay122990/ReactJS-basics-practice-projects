@@ -2,13 +2,16 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/index.jsx";
 import ProjectDetail from "./pages/Project-Detail/index.jsx";
 import Nav from "./components/Nav.jsx";
+import WorldWise from "./projects/worldwise/index.jsx";
 
 export default function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/projects/:slug" element={<ProjectDetail />} />
+        <Route path="/projects/worldwise/*" element={<WorldWise />} />
+
+        <Route path="/projects/:slug/*" element={<ProjectDetail />} />
       </Routes>
       <Nav />
     </>

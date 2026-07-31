@@ -66,6 +66,29 @@ function reducer(state, action) {
       return state;
   }
 }
+
+// switch (action.type) {
+//   case "ADD_ITEM":
+//     ...
+
+//   case "INCREASE_QTY":
+//     ...
+
+//   case "DECREASE_QTY":
+//     ...
+
+//   case "REMOVE_ITEM":
+//     ...
+
+//   case "CLEAR_CART":
+//     return {
+//       ...state,
+//       cart: [],
+//     };
+
+//   default:
+//     return state;
+// }
 function ShoppingCart() {
   const [{ products, cart }, dispatch] = useReducer(reducer, initialState);
   console.log(dispatch, cart);

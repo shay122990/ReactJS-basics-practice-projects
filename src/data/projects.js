@@ -27,6 +27,7 @@ import neoBank from "../assets/project-images/neo-bank.jpg";
 // API Integration
 // Derived State
 // Component Architecture
+// Routing
 
 export const PROJECTS = [
   {
@@ -271,6 +272,15 @@ export const PROJECTS = [
     learn:
       "Using useReducer for action-driven design and predictable state management",
     skills: ["useReducer"],
+    img: neoBank,
+  },
+  {
+    id: 22,
+    slug: "worldwise",
+    title: "Worldwise",
+    category: "Routing",
+    learn: "React-router dom for single page application ",
+    skills: ["react-router-dom"],
     img: neoBank,
   },
 ];
