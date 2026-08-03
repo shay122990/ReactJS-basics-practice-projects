@@ -1,19 +1,23 @@
-import styles from "./Worldwise.module.css";
+import "./app.css";
 
 import { Routes, Route } from "react-router-dom";
 
-import Homepage from "./pages/Homepage";
 import Product from "./pages/Product";
+import Homepage from "./pages/Homepage";
 import Pricing from "./pages/Pricing";
+import AppLayout from "./pages/AppLayout";
 import PageNotFound from "./pages/PageNotFound";
+import Login from "./pages/Login";
 
 function WorldWise() {
   return (
-    <div className={styles.main}>
+    <div className="worldwise">
       <Routes>
         <Route index element={<Homepage />} />
-        <Route path="pricing" element={<Pricing />} />
         <Route path="product" element={<Product />} />
+        <Route path="app" element={<AppLayout />} />
+        <Route path="pricing" element={<Pricing />} />
+        <Route path="login" element={<Login />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
