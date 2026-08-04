@@ -295,4 +295,13 @@ export const PROJECTS = [
     ],
     img: neoBank,
   },
+  {
+    id: 24,
+    slug: "atomic-blog",
+    title: "Atomic blog",
+    category: "State Management",
+    learn: "Learning Context API",
+    skills: ["context api", "derived state", "controlled values", "search"],
+    img: neoBank,
+  },
 ];
