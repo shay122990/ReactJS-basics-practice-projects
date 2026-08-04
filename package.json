@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "json-server --port 8001 src/data/questions.json"
+    "server:quiz": "json-server --port 8001 src/data/questions.json",
+    "server:worldwise": "json-server --port 8002 src/projects/worldwise/data/cities.json"
   },
   "dependencies": {
     "clsx": "^2.1.1",

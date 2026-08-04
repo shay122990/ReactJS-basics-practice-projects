@@ -275,12 +275,24 @@ export const PROJECTS = [
     img: neoBank,
   },
   {
-    id: 22,
+    id: 23,
     slug: "worldwise",
     title: "Worldwise",
-    category: "Routing",
-    learn: "React-router dom for single page application ",
-    skills: ["react-router-dom"],
+    category: "Routing, State Management",
+    learn:
+      "React-router dom for single page application. Learning routing, and managing global state. ",
+    skills: [
+      "react-router-dom",
+      "Navigate",
+      "NavLink",
+      "useNavigate",
+      "useParams",
+      "Intl.DateTimeFormat",
+      "useSearchParams",
+      "<Outlet/>",
+      "react-datepicker",
+      "react-leaflet",
+    ],
     img: neoBank,
   },
 ];
