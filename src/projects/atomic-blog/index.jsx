@@ -1,6 +1,6 @@
 import styles from "./AtomicBlog.module.css";
-import { createContext, useContext, useEffect, useState } from "react";
-
+import { useState } from "react";
+import { PostProvider, usePosts } from "./PostContext";
 import { faker } from "@faker-js/faker";
 
 function createRandomPost() {
@@ -19,52 +19,18 @@ function createRandomPost() {
 // You can copy an archived post into the main blog.
 // You can switch between light and dark mode.
 
-const PostContext = createContext();
-
 function AtomicBlog() {
-  const [posts, setPosts] = useState(() =>
-    Array.from({ length: 30 }, () => createRandomPost()),
-  );
-  const [searchQuery, setSearchQuery] = useState("");
   const [isFakeDark, setIsFakeDark] = useState(false);
 
-  // Derived state. These are the posts that will actually be displayed
-  // this is what shows in Main when more than 0 posts are found and how search is connected to posts
-  const searchedPosts =
-    searchQuery.length > 0
-      ? posts.filter((post) =>
-          `${post.title} ${post.body}`
-            .toLowerCase()
-            .includes(searchQuery.toLowerCase()),
-        )
-      : posts;
-
-  function handleAddPost(post) {
-    setPosts((posts) => [post, ...posts]); // new post added on top
-  }
-
-  function handleClearPosts() {
-    setPosts([]);
-  }
-
-  // Whenever `isFakeDark` changes, we toggle the `fake-dark-mode` class on the HTML element (see in "Elements" dev tool).
-  useEffect(() => {
-    document.documentElement.classList.toggle("fake-dark-mode", isFakeDark);
-  }, [isFakeDark]);
+  // useEffect(() => {
+  //   document.documentElement.classList.toggle("fake-dark-mode", isFakeDark);
+  // }, [isFakeDark]);
 
   return (
-    <PostContext.Provider
-      value={{
-        posts: searchedPosts,
-        onClearPosts: handleClearPosts,
-        searchQuery,
-        setSearchQuery,
-        onAddPost: handleAddPost,
-      }}
-    >
-      <section>
+    <PostProvider>
+      <section className={`${styles.page} ${isFakeDark ? styles.dark : ""}`}>
         <button
-          onClick={() => setIsFakeDark((isFakeDark) => !isFakeDark)}
+          onClick={() => setIsFakeDark((dark) => !dark)}
           className={styles.btnFakeDarkMode}
         >
           {isFakeDark ? "☀️" : "🌙"}
@@ -75,18 +41,18 @@ function AtomicBlog() {
         <Archive />
         <Footer />
       </section>
-    </PostContext.Provider>
+    </PostProvider>
   );
 }
 
 function Header() {
-  const { onClearPosts } = useContext(PostContext);
+  const { onClearPosts } = usePosts();
   return (
-    <header>
+    <header className={styles.header}>
       <h1>
         <span>⚛️</span>The Atomic Blog
       </h1>
-      <div>
+      <div className={styles.controls}>
         <Results />
         <SearchPosts />
         <button onClick={onClearPosts}>Clear posts</button>
@@ -96,7 +62,7 @@ function Header() {
 }
 
 function SearchPosts() {
-  const { searchQuery, setSearchQuery } = useContext(PostContext);
+  const { searchQuery, setSearchQuery } = usePosts();
 
   return (
     <input
@@ -108,13 +74,13 @@ function SearchPosts() {
 }
 
 function Results() {
-  const { posts } = useContext(PostContext);
+  const { posts } = usePosts();
   return <p>🚀 {posts.length} atomic posts found</p>;
 }
 
 function Main({ posts, onAddPost }) {
   return (
-    <main>
+    <main className={styles.main}>
       <FormAddPost onAddPost={onAddPost} />
       <Posts posts={posts} />
     </main>
@@ -123,14 +89,14 @@ function Main({ posts, onAddPost }) {
 
 function Posts() {
   return (
-    <section>
+    <section className={styles.postsContainer}>
       <List />
     </section>
   );
 }
 
 function FormAddPost() {
-  const { onAddPost } = useContext(PostContext);
+  const { onAddPost } = usePosts();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
@@ -143,7 +109,7 @@ function FormAddPost() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.form}>
       <input
         value={title}
         onChange={(e) => setTitle(e.target.value)}
@@ -160,11 +126,12 @@ function FormAddPost() {
 }
 
 function List() {
-  const { posts } = useContext(PostContext);
+  const { posts } = usePosts();
+
   return (
-    <ul>
+    <ul className={styles.posts}>
       {posts.map((post, i) => (
-        <li key={i}>
+        <li key={i} className={styles.card}>
           <h3>{post.title}</h3>
           <p>{post.body}</p>
         </li>
@@ -174,17 +141,15 @@ function List() {
 }
 
 function Archive() {
-  const { onAddPost } = useContext(PostContext);
-  // Here we don't need the setter function. We're only using state to store these posts because the callback function passed into useState (which generates the posts) is only called once, on the initial render. So we use this trick as an optimization technique, because if we just used a regular variable, these posts would be re-created on every render. We could also move the posts outside the components, but I wanted to show you this trick 😉
+  const { onAddPost } = usePosts();
   const [posts] = useState(() =>
-    // 💥 WARNING: This might make your computer slow! Try a smaller `length` first
     Array.from({ length: 100 }, () => createRandomPost()),
   );
 
   const [showArchive, setShowArchive] = useState(false);
 
   return (
-    <aside>
+    <aside className={styles.archive}>
       <h2>Post archive</h2>
       <button onClick={() => setShowArchive((s) => !s)}>
         {showArchive ? "Hide archive posts" : "Show archive posts"}
@@ -207,7 +172,9 @@ function Archive() {
 }
 
 function Footer() {
-  return <footer>&copy; by The Atomic Blog ✌️</footer>;
+  return (
+    <footer className={styles.footer}>&copy; by The Atomic Blog ✌️</footer>
+  );
 }
 
 export default AtomicBlog;

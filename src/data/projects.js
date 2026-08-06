@@ -19,6 +19,7 @@ import characterCounter from "../assets/project-images/character-counter.jpg";
 import currencyConverter from "../assets/project-images/currency-converter.jpg";
 import reactQuiz from "../assets/project-images/react-quiz.jpg";
 import neoBank from "../assets/project-images/neo-bank.jpg";
+import atomicBlog from "../assets/project-images/atomic-blog.jpg";
 // ------------- CATEGORIES
 // Fundamentals
 // State Management
@@ -301,7 +302,13 @@ export const PROJECTS = [
     title: "Atomic blog",
     category: "State Management",
     learn: "Learning Context API",
-    skills: ["context api", "derived state", "controlled values", "search"],
-    img: neoBank,
+    skills: [
+      "CONTEXT API",
+      "derived state",
+      "controlled values",
+      "search",
+      "custom hooks",
+    ],
+    img: atomicBlog,
   },
 ];
