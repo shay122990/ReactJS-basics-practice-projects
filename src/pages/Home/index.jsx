@@ -45,7 +45,11 @@ export default function Home() {
             </p>
           </div>
         </section>
-        <section className={styles.grid}>
+        <section
+          className={`${styles.grid} ${
+            filtered.length === 1 ? styles.singleResult : ""
+          }`}
+        >
           {filtered.map((p) => (
             <Link key={p.id} to={`/projects/${p.slug}`} className={styles.card}>
               <img className={styles.thumb} src={p.img} alt={p.title} />
@@ -57,7 +61,11 @@ export default function Home() {
 
                 <p className={styles.meta}>{p.learn}</p>
 
-                <div className={styles.skills}>
+                <div
+                  className={`${styles.skills} ${
+                    p.skills.length > 7 ? styles.hasMoreSkills : ""
+                  }`}
+                >
                   {p.skills.map((skill) => (
                     <span key={skill} className={styles.skill}>
                       {skill}

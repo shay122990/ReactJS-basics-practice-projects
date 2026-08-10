@@ -19,6 +19,7 @@ import characterCounter from "../assets/project-images/character-counter.jpg";
 import currencyConverter from "../assets/project-images/currency-converter.jpg";
 import reactQuiz from "../assets/project-images/react-quiz.jpg";
 import neoBank from "../assets/project-images/neo-bank.jpg";
+import shoppingCart from "../assets/project-images/shopping-cart.jpg";
 import atomicBlog from "../assets/project-images/atomic-blog.jpg";
 // ------------- CATEGORIES
 // Fundamentals
@@ -273,7 +274,7 @@ export const PROJECTS = [
     learn:
       "Using useReducer for action-driven design and predictable state management",
     skills: ["useReducer"],
-    img: neoBank,
+    img: shoppingCart,
   },
   {
     id: 23,
