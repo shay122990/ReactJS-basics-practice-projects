@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const CitiesContext = createContext();
 
@@ -23,6 +23,7 @@ function CitiesProvider({ children }) {
         setIsLoading(false);
       }
     }
+
     fetchCities();
   }, []);
 
@@ -34,7 +35,7 @@ function CitiesProvider({ children }) {
 
       setCurrentCity(data);
     } catch {
-      alert("error fetching cities");
+      alert("error fetching city");
     } finally {
       setIsLoading(false);
     }
@@ -54,12 +55,4 @@ function CitiesProvider({ children }) {
   );
 }
 
-function useCities() {
-  const value = useContext(CitiesContext);
-  if (value === undefined)
-    throw new Error("CitiesContext was used outside of CitiesProvider");
-  return value;
-}
-
-// eslint-disable-next-line react-refresh/only-export-components
-export { CitiesProvider, useCities };
+export { CitiesProvider, CitiesContext };
