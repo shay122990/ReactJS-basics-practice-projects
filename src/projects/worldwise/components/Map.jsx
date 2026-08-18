@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useCities } from "../../hooks/useCities";
+import { useCities } from "../hooks/useCities";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import styles from "./Map.module.css";
 import {
@@ -10,7 +10,7 @@ import {
   useMap,
   useMapEvents,
 } from "react-leaflet";
-import { useGeolocation } from "../../hooks/useGeolocation";
+import { useGeolocation } from "../hooks/useGeolocation";
 import Button from "./Button";
 
 function Map() {
