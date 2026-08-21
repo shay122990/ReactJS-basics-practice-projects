@@ -1,6 +1,8 @@
 import styles from "../ReactQuiz.module.css";
+import { useQuiz } from "../hooks/useQuiz";
 
-function Options({ question, dispatch, answer }) {
+function Options() {
+  const { question, dispatch, answer } = useQuiz();
   const hasAnswered = answer !== null;
   // console.log(answer);
 

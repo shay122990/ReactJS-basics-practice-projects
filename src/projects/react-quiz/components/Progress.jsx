@@ -1,6 +1,8 @@
 import styles from "../ReactQuiz.module.css";
+import { useQuiz } from "../hooks/useQuiz";
 
-function Progress({ index, numQuestions, points, maxPossiblePoints, answer }) {
+function Progress() {
+  const { index, numQuestions, points, maxPossiblePoints, answer } = useQuiz();
   return (
     <header className={styles.progress}>
       <progress max={numQuestions} value={index + Number(answer !== null)} />

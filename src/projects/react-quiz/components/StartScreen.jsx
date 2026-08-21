@@ -1,6 +1,8 @@
+import { useQuiz } from "../hooks/useQuiz";
 import styles from "../ReactQuiz.module.css";
 
-function StartScreen({ numQuestions, dispatch }) {
+function StartScreen() {
+  const { numQuestions, dispatch } = useQuiz();
   return (
     <div className={styles.start}>
       <h2>Welcome to the React Quiz</h2>
