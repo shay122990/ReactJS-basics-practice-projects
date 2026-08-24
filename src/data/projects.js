@@ -30,6 +30,7 @@ import atomicBlog from "../assets/project-images/atomic-blog.jpg";
 // Derived State
 // Component Architecture
 // Routing
+// Performance
 
 export const PROJECTS = [
   {
@@ -309,6 +310,21 @@ export const PROJECTS = [
       "controlled values",
       "search",
       "custom hooks",
+    ],
+    img: atomicBlog,
+  },
+  {
+    id: 25,
+    slug: "product-list-memo",
+    title: "Product List",
+    category: "Performance",
+    learn: "Learning useMemo",
+    skills: [
+      "USEMEMO",
+      "derived state",
+      "filtering",
+      "sorting",
+      "component re-renders",
     ],
     img: atomicBlog,
   },
