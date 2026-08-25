@@ -21,6 +21,7 @@ import reactQuiz from "../assets/project-images/react-quiz.jpg";
 import neoBank from "../assets/project-images/neo-bank.jpg";
 import shoppingCart from "../assets/project-images/shopping-cart.jpg";
 import atomicBlog from "../assets/project-images/atomic-blog.jpg";
+import productListMemo from "../assets/project-images/product-list-memo.jpg";
 // ------------- CATEGORIES
 // Fundamentals
 // State Management
@@ -321,11 +322,12 @@ export const PROJECTS = [
     learn: "Learning useMemo",
     skills: [
       "USEMEMO",
+      "memo",
       "derived state",
       "filtering",
       "sorting",
       "component re-renders",
     ],
-    img: atomicBlog,
+    img: productListMemo,
   },
 ];
