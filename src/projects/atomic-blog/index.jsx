@@ -1,5 +1,5 @@
 import styles from "./AtomicBlog.module.css";
-import { useState } from "react";
+import { memo, useState } from "react";
 import { PostProvider, usePosts } from "./PostContext";
 import { faker } from "@faker-js/faker";
 
@@ -78,14 +78,14 @@ function Results() {
   return <p>🚀 {posts.length} atomic posts found</p>;
 }
 
-function Main({ posts, onAddPost }) {
+const Main = memo(function Main({ posts, onAddPost }) {
   return (
     <main className={styles.main}>
       <FormAddPost onAddPost={onAddPost} />
       <Posts posts={posts} />
     </main>
   );
-}
+});
 
 function Posts() {
   return (
