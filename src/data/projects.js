@@ -282,7 +282,7 @@ export const PROJECTS = [
     id: 23,
     slug: "worldwise",
     title: "Worldwise",
-    category: "Routing, State Management",
+    category: "Routing, State Management, Optimization",
     learn:
       "React-router dom for single page application. Learning routing, and managing global state. ",
     skills: [
@@ -297,6 +297,8 @@ export const PROJECTS = [
       "react-datepicker",
       "react-leaflet",
       "useCallback",
+      "lazy",
+      "Suspense",
     ],
     img: neoBank,
   },
