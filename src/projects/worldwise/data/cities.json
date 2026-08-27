@@ -4,13 +4,49 @@
       "cityName": "Madrid",
       "country": "Spain",
       "emoji": "🇪🇸",
-      "date": "2026-08-18T11:16:56.323Z",
+      "date": "2026-08-27T09:14:40.161Z",
       "notes": "",
       "position": {
-        "lat": "40.43688737272623",
-        "lng": "-3.7010857936367203"
+        "lat": "40.38830891135925",
+        "lng": "-3.6357519325855296"
       },
-      "id": "9Jt8fx3SiJE"
+      "id": "chgtvAMog1U"
+    },
+    {
+      "cityName": "Ribera d'Urgellet",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2026-08-27T09:14:45.760Z",
+      "notes": "",
+      "position": {
+        "lat": "42.25250492610739",
+        "lng": "1.3723027768827611"
+      },
+      "id": "z-TyEC8_xSc"
+    },
+    {
+      "cityName": "Mezieres-en-Brenne",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2026-08-27T09:14:49.111Z",
+      "notes": "",
+      "position": {
+        "lat": "46.8366628855797",
+        "lng": "1.197540239947426"
+      },
+      "id": "xgSWBeG-vEM"
+    },
+    {
+      "cityName": "London",
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "emoji": "🇬🇧",
+      "date": "2026-08-27T09:14:53.094Z",
+      "notes": "",
+      "position": {
+        "lat": "51.487231338016805",
+        "lng": "-0.12477657227921492"
+      },
+      "id": "XavkgFM6uso"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

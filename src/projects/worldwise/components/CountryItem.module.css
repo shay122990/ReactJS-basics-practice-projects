@@ -3,17 +3,41 @@
   flex-direction: column;
   align-items: center;
   gap: 0.2rem;
-
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 600;
-
   background-color: var(--color-dark--2);
   border-radius: 7px;
-  padding: 1rem 2rem;
+  padding: 1rem 1.25rem;
   border-left: 5px solid var(--color-brand--1);
+  min-width: 0;
+  text-align: center;
+  overflow: hidden;
 }
-
 .countryItem span:first-child {
-  font-size: 3rem;
+  font-size: 2.6rem;
   line-height: 1;
+}
+.countryItem span:last-child {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .countryItem {
+    font-size: 1.2rem;
+    padding: 0.8rem 1rem;
+  }
+  .countryItem span:first-child {
+    font-size: 2.3rem;
+  }
+}
+@media (max-width: 480px) {
+  .countryItem {
+    font-size: 1rem;
+    padding: 0.7rem 0.75rem;
+  }
+  .countryItem span:first-child {
+    font-size: 2rem;
+  }
 }

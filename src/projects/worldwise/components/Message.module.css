@@ -1,7 +1,21 @@
 .message {
   text-align: center;
-  font-size: 1.8rem;
-  width: 80%;
-  margin: 2rem auto;
+  font-size: 1.3rem;
+  width: 90%;
+  margin: 1.5rem auto;
   font-weight: 600;
+}
+@media (max-width: 768px) {
+  .message {
+    font-size: 1.1rem;
+    width: 95%;
+    margin: 1rem auto;
+  }
+}
+@media (max-width: 480px) {
+  .message {
+    font-size: 1rem;
+    width: 100%;
+    margin: 0.75rem auto;
+  }
 }

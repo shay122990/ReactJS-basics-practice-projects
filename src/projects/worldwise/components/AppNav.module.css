@@ -1,28 +1,66 @@
 .nav {
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  margin-top: clamp(1rem, 4vw, 3rem);
+  margin-bottom: clamp(1rem, 3vw, 2rem);
 }
 
 .nav ul {
   list-style: none;
   display: flex;
+
   background-color: var(--color-dark--2);
   border-radius: 7px;
+
+  /* Prevent the nav from becoming wider than its container */
+  max-width: 100%;
 }
 
 .nav a:link,
 .nav a:visited {
   display: block;
+
   color: inherit;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 1.2rem;
+
+  font-size: clamp(0.85rem, 2vw, 1.2rem);
   font-weight: 700;
-  padding: 0.5rem 2rem;
+
+  padding: 0.5rem clamp(0.75rem, 3vw, 2rem);
+
   border-radius: 5px;
 }
 
 /* CSS Modules feature */
 .nav a:global(.active) {
   background-color: var(--color-dark--0);
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .nav ul {
+    justify-content: center;
+  }
+
+  .nav a:link,
+  .nav a:visited {
+    text-align: center;
+  }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  .nav {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .nav ul {
+    width: 100%;
+  }
+
+  .nav a:link,
+  .nav a:visited {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
 }

@@ -1,3 +1,12 @@
 .logo {
-  height: 5.2rem;
+  height: 3.2rem;
+  width: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .logo {
+    height: 3.5rem;
+  }
 }

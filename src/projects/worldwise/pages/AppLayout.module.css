@@ -1,7 +1,17 @@
 .app {
-  height: 100vh;
+  height: 100dvh;
   padding: 2.4rem;
   overscroll-behavior-y: none;
   display: flex;
   position: relative;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .app {
+    height: auto;
+    min-height: 100dvh;
+    padding: 1rem;
+    flex-direction: column;
+    overflow: auto;
+  }
 }

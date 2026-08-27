@@ -2,25 +2,30 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 2rem;
 }
 
 .nav ul {
   list-style: none;
+
   display: flex;
   align-items: center;
-  gap: 4rem;
+
+  gap: clamp(1rem, 4vw, 4rem);
 }
 
 .nav a:link,
 .nav a:visited {
   text-decoration: none;
   color: var(--color-light--2);
+
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
   font-weight: 600;
+
+  white-space: nowrap;
 }
 
-/* CSS Modules feature */
 .nav a:global(.active) {
   color: var(--color-brand--2);
 }
@@ -29,6 +34,33 @@ a.ctaLink:link,
 a.ctaLink:visited {
   background-color: var(--color-brand--2);
   color: var(--color-dark--0);
+
   padding: 0.8rem 2rem;
   border-radius: 7px;
+
+  white-space: nowrap;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .nav {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .nav ul {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+  }
+
+  .nav a:link,
+  .nav a:visited {
+    font-size: 0.9rem;
+  }
+
+  a.ctaLink:link,
+  a.ctaLink:visited {
+    padding: 0.6rem 1.25rem;
+  }
 }
