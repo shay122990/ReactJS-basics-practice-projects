@@ -336,4 +336,22 @@ export const PROJECTS = [
     ],
     img: productListMemo,
   },
+  {
+    id: 26,
+    slug: "workout-timer",
+    title: "Workout Timer",
+    category: "Performance",
+    learn: "Learning useMemo",
+    skills: [
+      "USEMEMO",
+      "memo",
+      "derived state",
+      "filtering",
+      "sorting",
+      "component re-renders",
+      "setTimeout",
+      "new Date()",
+    ],
+    img: productListMemo,
+  },
 ];
