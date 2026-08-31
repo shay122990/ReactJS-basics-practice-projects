@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Calculator from "./Calculator";
 import ToggleSounds from "./ToggleSounds";
+import styles from "./WorkoutTimer.module.css";
 
 function formatTime(date) {
   return new Intl.DateTimeFormat("en", {
@@ -55,10 +56,13 @@ function WorkoutTimer() {
   }, []);
 
   return (
-    <main>
-      <h1>Workout timer</h1>
-      <time>For your workout on {time}</time>
+    <main className={styles.container}>
+      <h1 className={styles.title}>Workout timer</h1>
+
+      <time className={styles.time}>For your workout on {time}</time>
+
       <ToggleSounds allowSound={allowSound} setAllowSound={setAllowSound} />
+
       <Calculator workouts={workouts} allowSound={allowSound} />
     </main>
   );

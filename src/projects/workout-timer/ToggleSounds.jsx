@@ -1,8 +1,10 @@
 import { memo } from "react";
+import styles from "./WorkoutTimer.module.css";
+
 function ToggleSounds({ allowSound, setAllowSound }) {
   return (
     <button
-      className="btn-sound"
+      className={styles.soundButton}
       onClick={() => setAllowSound((allow) => !allow)}
     >
       {allowSound ? "🔈" : "🔇"}

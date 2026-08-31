@@ -1,0 +1,163 @@
+.container {
+  min-height: 100vh;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  color: #211e1e;
+}
+.title {
+  margin: 0;
+  text-align: center;
+  font-size: 2.3rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+.time {
+  display: block;
+  margin: 0.7rem 0 2rem;
+  text-align: center;
+  color: #04f829;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.form {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: #242424;
+  border: 1px solid #292929;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+.formGroup {
+  display: grid;
+  gap: 0.4rem;
+}
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #04f829;
+}
+.select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: #222;
+  color: #fff;
+  font: inherit;
+  font-size: 0.8rem;
+  outline: none;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.select:hover,
+.select:focus {
+  border-color: #c2c2c2;
+  background: #252525;
+}
+.range {
+  width: 100%;
+  height: 4px;
+  accent-color: #fff;
+  cursor: pointer;
+}
+.value {
+  font-size: 0.7rem;
+  color: #fbf9f9;
+}
+.soundButton {
+  display: block;
+  margin: 0 auto 1.25rem;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  background: #181818;
+  color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    background 0.2s,
+    border-color 0.2s;
+}
+.soundButton:hover {
+  background: #252525;
+  border-color: #555;
+  transform: scale(1.05);
+}
+.soundButton:active {
+  transform: scale(0.95);
+}
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.duration {
+  min-width: 150px;
+  margin: 0;
+  font-size: 3.7rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.07em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.timerButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  background: #181818;
+  color: #fff;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
+}
+.timerButton:hover {
+  background: #292929;
+  border-color: #555;
+}
+.timerButton:active {
+  transform: scale(0.92);
+}
+@media (max-width: 600px) {
+  .container {
+    padding: 2rem 0.75rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .form {
+    padding: 1rem;
+  }
+  .duration {
+    min-width: 130px;
+    font-size: 3rem;
+  }
+  .timer {
+    gap: 0.75rem;
+  }
+}
