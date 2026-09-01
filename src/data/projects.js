@@ -34,6 +34,7 @@ import workoutTimer from "../assets/project-images/workout-timer.jpg";
 // Component Architecture
 // Routing
 // Performance
+// Global State Management
 
 export const PROJECTS = [
   {
@@ -357,6 +358,15 @@ export const PROJECTS = [
       "Math.floor()",
       "Math.ceil()",
     ],
+    img: workoutTimer,
+  },
+  {
+    id: 27,
+    slug: "redux-bank",
+    title: "Redux Bank",
+    category: "Global State Management",
+    learn: "Learning classic redux",
+    skills: ["redux", ""],
     img: workoutTimer,
   },
 ];
