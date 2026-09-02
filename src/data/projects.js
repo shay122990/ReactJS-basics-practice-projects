@@ -366,7 +366,13 @@ export const PROJECTS = [
     title: "Redux Bank",
     category: "Global State Management",
     learn: "Learning classic redux",
-    skills: ["redux", ""],
+    skills: [
+      "redux",
+      "react-redux",
+      "useSelector",
+      "getStore()",
+      "useDispatch()",
+    ],
     img: workoutTimer,
   },
 ];

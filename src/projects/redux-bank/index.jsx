@@ -1,17 +1,13 @@
-import CreateCustomer from "./CreateCustomer";
-import Customer from "./Customer";
-import AccountOperations from "./AccountOperations";
-import BalanceDisplay from "./BalanceDisplay";
-import "./store";
+import { Provider } from "react-redux";
+import store from "./store";
+import Layout from "./Layout";
 
 export default function ReduxBank() {
   return (
-    <div>
-      <h1>🏦 The React-Redux Bank ⚛️</h1>
-      <CreateCustomer />
-      <Customer />
-      <AccountOperations />
-      <BalanceDisplay />
-    </div>
+    <>
+      <Provider store={store}>
+        <Layout />
+      </Provider>
+    </>
   );
 }
