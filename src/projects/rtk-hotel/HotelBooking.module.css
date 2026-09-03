@@ -1,0 +1,238 @@
+.container {
+  min-height: 100vh;
+  padding: 60px 80px;
+  background:
+    linear-gradient(rgba(20, 18, 15, 0.72), rgba(20, 18, 15, 0.82)),
+    radial-gradient(circle at top, #5a4a35, #171411 65%);
+  color: #f5f0e8;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Header */
+
+.container h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  color: #d8b477;
+}
+
+.container h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 1px;
+  margin: 18px auto 45px;
+  background: #d8b477;
+}
+
+/* Rooms */
+
+.rooms {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.room {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 25px 30px;
+
+  background: rgba(35, 31, 26, 0.88);
+  border: 1px solid rgba(216, 180, 119, 0.25);
+  border-radius: 4px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.room:hover {
+  transform: translateY(-2px);
+  border-color: rgba(216, 180, 119, 0.6);
+  background: rgba(45, 39, 32, 0.95);
+}
+
+.room h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 400;
+  color: #f4eee4;
+}
+
+.room p {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #b9afa0;
+}
+
+/* Buttons */
+
+.room button,
+.nights button {
+  border: 1px solid #d8b477;
+  background: transparent;
+  color: #d8b477;
+
+  padding: 10px 22px;
+
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  border-radius: 2px;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.room button:hover,
+.nights button:hover {
+  background: #d8b477;
+  color: #211c16;
+}
+
+/* Booked */
+
+.room span {
+  padding: 9px 18px;
+
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  color: #81796d;
+  border: 1px solid #514b43;
+}
+
+/* Booking Card */
+
+.booking {
+  max-width: 900px;
+  margin: 45px auto 0;
+  padding: 35px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(58, 49, 39, 0.95),
+    rgba(30, 26, 22, 0.98)
+  );
+
+  border: 1px solid rgba(216, 180, 119, 0.45);
+  border-radius: 4px;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.booking h2 {
+  margin: 0 0 25px;
+
+  font-size: 26px;
+  font-weight: 400;
+  color: #d8b477;
+}
+
+.booking p {
+  font-family: Arial, sans-serif;
+  color: #c8c0b5;
+  font-size: 14px;
+}
+
+/* Night selector */
+
+.nights {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 25px 0;
+}
+
+.nights span {
+  min-width: 90px;
+
+  text-align: center;
+
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #f5f0e8;
+}
+
+/* Total */
+
+.booking > p:last-of-type {
+  padding-top: 20px;
+  border-top: 1px solid rgba(216, 180, 119, 0.2);
+
+  font-size: 18px;
+  color: #d8b477;
+}
+
+/* Confirm */
+
+.confirm {
+  width: 100%;
+  margin-top: 15px;
+  padding: 14px;
+
+  border: none;
+  border-radius: 2px;
+
+  background: #d8b477;
+  color: #211c16;
+
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.confirm:hover {
+  background: #ebce9d;
+  transform: translateY(-1px);
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .container {
+    padding: 40px 20px;
+  }
+
+  .container h1 {
+    font-size: 36px;
+  }
+
+  .room {
+    padding: 20px;
+  }
+
+  .booking {
+    padding: 25px;
+  }
+}
