@@ -15,23 +15,28 @@ const bookingSlice = createSlice({
   initialState,
   reducers: {
     selectRoom(state, action) {
-      console.log(state, action);
+      state.selectedRoom = action.payload;
     },
 
     setNights(state, action) {
-      console.log(state, action);
+      state.nights = action.payload;
     },
 
     increaseNights(state) {
-      console.log(state);
+      state.nights = state.nights + 1;
     },
 
     decreaseNights(state) {
-      console.log(state);
+      state.nights = state.nights - 1;
     },
 
     confirmBooking(state) {
-      console.log(state);
+      const room = state.rooms.find((room) => room.id === state.selectedRoom);
+
+      if (room) {
+        room.booked = true;
+      }
+      console.log("booking confirmed");
     },
 
     cancelBooking(state) {

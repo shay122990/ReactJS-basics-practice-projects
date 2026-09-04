@@ -287,7 +287,7 @@ export const PROJECTS = [
     title: "Worldwise",
     category: "Routing, State Management, Optimization",
     learn:
-      "React-router dom for single page application. Learning routing, and managing global state. ",
+      "React-router dom for single page application and fetch on render. Learning routing, and managing global state. ",
     skills: [
       "react-router-dom",
       "Navigate",
