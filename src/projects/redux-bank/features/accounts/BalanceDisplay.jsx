@@ -10,7 +10,24 @@ function formatCurrency(value) {
 
 function BalanceDisplay() {
   const { balance } = useSelector((state) => state.account);
-  return <div className={styles.balance}>{formatCurrency(balance)}</div>;
+
+  return (
+    <section className={styles.balanceCard}>
+      <div className={styles.balanceTop}>
+        <div>
+          <span className={styles.balanceLabel}>AVAILABLE BALANCE</span>
+          <div className={styles.balance}>{formatCurrency(balance)}</div>
+        </div>
+
+        <div className={styles.cardChip}>✦</div>
+      </div>
+
+      <div className={styles.balanceBottom}>
+        <span>Primary account</span>
+        <span>•••• 2847</span>
+      </div>
+    </section>
+  );
 }
 
 export default BalanceDisplay;

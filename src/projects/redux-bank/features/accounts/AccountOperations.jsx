@@ -43,74 +43,103 @@ function AccountOperations() {
   }
 
   return (
-    <div>
-      <h2>Your account operations</h2>
-
-      <div className={styles.inputs}>
+    <section className={styles.operations}>
+      <div className={styles.sectionHeader}>
         <div>
-          <label>Deposit</label>
+          <span className={styles.eyebrow}>MANAGE MONEY</span>
+          <h2>Account operations</h2>
+        </div>
+        <span className={styles.headerIcon}>↗</span>
+      </div>
 
-          <input
-            type="number"
-            value={depositAmount}
-            onChange={(e) => setDepositAmount(+e.target.value)}
-          />
+      <div className={styles.operationGrid}>
+        <div className={styles.operation}>
+          <div className={styles.operationIcon}>↓</div>
+          <div className={styles.operationContent}>
+            <label>Deposit money</label>
+            <div className={styles.controls}>
+              <input
+                type="number"
+                value={depositAmount}
+                onChange={(e) => setDepositAmount(+e.target.value)}
+                placeholder="Amount"
+              />
 
-          <select
-            value={currency}
-            onChange={(e) => setCurrency(e.target.value)}
-          >
-            <option value="USD">US Dollar</option>
-            <option value="EUR">Euro</option>
-            <option value="GBP">British Pound</option>
-          </select>
+              <select
+                value={currency}
+                onChange={(e) => setCurrency(e.target.value)}
+              >
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+              </select>
 
-          <button onClick={handleDeposit} disabled={isLoading}>
-            {isLoading ? "Converting..." : `Deposit ${depositAmount}`}
-          </button>
+              <button onClick={handleDeposit} disabled={isLoading}>
+                {isLoading ? "Converting..." : "Deposit"}
+              </button>
+            </div>
+          </div>
         </div>
 
-        <div>
-          <label>Withdraw</label>
+        <div className={styles.operation}>
+          <div className={styles.operationIcon}>↑</div>
+          <div className={styles.operationContent}>
+            <label>Withdraw money</label>
+            <div className={styles.controls}>
+              <input
+                type="number"
+                value={withdrawalAmount}
+                onChange={(e) => setWithdrawalAmount(+e.target.value)}
+                placeholder="Amount"
+              />
 
-          <input
-            type="number"
-            value={withdrawalAmount}
-            onChange={(e) => setWithdrawalAmount(+e.target.value)}
-          />
-
-          <button onClick={handleWithdrawal}>
-            Withdraw {withdrawalAmount}
-          </button>
+              <button onClick={handleWithdrawal}>Withdraw</button>
+            </div>
+          </div>
         </div>
 
-        <div>
-          <label>Request loan</label>
+        <div className={styles.operation}>
+          <div className={styles.operationIcon}>✦</div>
+          <div className={styles.operationContent}>
+            <label>Request a loan</label>
+            <div className={styles.controls}>
+              <input
+                type="number"
+                value={loanAmount}
+                onChange={(e) => setLoanAmount(+e.target.value)}
+                placeholder="Amount"
+              />
 
-          <input
-            type="number"
-            value={loanAmount}
-            onChange={(e) => setLoanAmount(+e.target.value)}
-            placeholder="Loan amount"
-          />
+              <input
+                value={loanPurpose}
+                onChange={(e) => setLoanPurpose(e.target.value)}
+                placeholder="Purpose"
+              />
 
-          <input
-            value={loanPurpose}
-            onChange={(e) => setLoanPurpose(e.target.value)}
-            placeholder="Loan purpose"
-          />
-
-          <button onClick={handleRequestLoan}>Request loan</button>
+              <button onClick={handleRequestLoan}>Request loan</button>
+            </div>
+          </div>
         </div>
 
-        <div>
-          <span>
-            Pay back {currentLoan} ({currentLoanPurpose})
-          </span>
-          <button onClick={handlePayLoan}>Pay loan</button>
+        <div className={styles.operation}>
+          <div className={styles.operationIcon}>✓</div>
+          <div className={styles.operationContent}>
+            <label>Outstanding loan</label>
+            <div className={styles.loanRow}>
+              <span>
+                {currentLoan > 0
+                  ? `$${currentLoan.toLocaleString()} · ${currentLoanPurpose}`
+                  : "No outstanding loan"}
+              </span>
+
+              <button onClick={handlePayLoan} disabled={!currentLoan}>
+                Pay loan
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

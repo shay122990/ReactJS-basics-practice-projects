@@ -24,6 +24,7 @@ import atomicBlog from "../assets/project-images/atomic-blog.jpg";
 import worldwise from "../assets/project-images/worldwise.jpg";
 import productListMemo from "../assets/project-images/product-list-memo.jpg";
 import workoutTimer from "../assets/project-images/workout-timer.jpg";
+import reduxBank from "../assets/project-images/redux-bank.jpg";
 // ------------- CATEGORIES
 // Fundamentals
 // State Management
@@ -375,7 +376,7 @@ export const PROJECTS = [
       "thunk-middleware",
       "redux-devtools/extension",
     ],
-    img: workoutTimer,
+    img: reduxBank,
   },
   {
     id: 28,
