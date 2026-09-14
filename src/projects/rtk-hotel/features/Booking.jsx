@@ -5,6 +5,7 @@ import {
   selectRoom,
   decreaseNights,
   confirmBooking,
+  cancelBooking,
 } from "./bookingSlice";
 // import { useState } from "react";
 
@@ -27,14 +28,9 @@ function Booking() {
     dispatch(confirmBooking());
   }
 
-  // function cancelBooking(){}
-
-  // console.log("selectedRoom:", selectedRoom);
-  // console.log("rooms:", rooms);
-  // console.log(
-  //   "found room:",
-  //   rooms.find((room) => room.id === selectedRoom),
-  // );
+  function handleCancelBooking() {
+    dispatch(cancelBooking({ id: selectedRoom }));
+  }
 
   return (
     <div className={styles.container}>
@@ -75,6 +71,9 @@ function Booking() {
 
         <button className={styles.confirm} onClick={handleBooking}>
           Confirm Booking
+        </button>
+        <button className={styles.confirm} onClick={handleCancelBooking}>
+          Cancel Booking
         </button>
       </div>
     </div>

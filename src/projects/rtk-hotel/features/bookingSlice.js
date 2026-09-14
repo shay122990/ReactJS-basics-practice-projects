@@ -39,8 +39,15 @@ const bookingSlice = createSlice({
       console.log("booking confirmed");
     },
 
-    cancelBooking(state) {
-      console.log(state);
+    cancelBooking(state, action) {
+      const room = state.rooms.find((room) => room.id === action.payload.id);
+
+      if (room) {
+        room.booked = false;
+      }
+
+      state.selectedRoom = null;
+      state.nights = 1;
     },
   },
 });
