@@ -1,0 +1,160 @@
+.countForge {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 48px;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(233, 214, 7, 0.14), transparent 30%),
+    radial-gradient(
+      circle at 90% 100%,
+      rgba(75, 190, 170, 0.1),
+      transparent 30%
+    ),
+    #101722;
+  color: #fff;
+}
+
+.countForge h1 {
+  margin: 0 0 40px;
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  color: #fff;
+}
+
+.counterPanel {
+  width: min(100%, 520px);
+  margin: 0 auto;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  background: #191f2b;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.status {
+  padding: 5px 9px;
+  border-radius: 20px;
+  background: rgba(233, 214, 7, 0.12);
+  color: #e9d607;
+  font-size: 0.6rem;
+}
+
+.display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  border: 1px solid rgba(233, 214, 7, 0.15);
+  border-radius: 20px;
+  background: #111722;
+  color: #fff;
+  font-size: clamp(5rem, 12vw, 8rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.08em;
+  text-shadow: 0 0 40px rgba(233, 214, 7, 0.15);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.controls button {
+  height: 56px;
+  border-radius: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.controls button:hover {
+  transform: translateY(-2px);
+}
+
+.decrement,
+.increment {
+  border: 1px solid rgba(233, 214, 7, 0.35);
+  background: rgba(233, 214, 7, 0.08);
+  color: #e9d607;
+  font-size: 1.6rem;
+}
+
+.decrement:hover,
+.increment:hover {
+  background: #e9d607;
+  color: #111722;
+}
+
+.reset {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+}
+
+.reset:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.stepControl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.stepControl select {
+  min-width: 70px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  outline: none;
+  background: #111722;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .countForge {
+    padding: 28px 18px;
+  }
+
+  .counterPanel {
+    padding: 20px;
+  }
+
+  .display {
+    min-height: 140px;
+  }
+}

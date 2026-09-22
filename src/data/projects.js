@@ -25,6 +25,8 @@ import worldwise from "../assets/project-images/worldwise.jpg";
 import productListMemo from "../assets/project-images/product-list-memo.jpg";
 import workoutTimer from "../assets/project-images/workout-timer.jpg";
 import reduxBank from "../assets/project-images/redux-bank.jpg";
+import marketExplorer from "../assets/project-images/market-explorer.jpg";
+import countForge from "../assets/project-images/count-forge.jpg";
 // ------------- CATEGORIES
 // Fundamentals
 // State Management
@@ -394,5 +396,23 @@ export const PROJECTS = [
       "redux-devtools/extension",
     ],
     img: workoutTimer,
+  },
+  {
+    id: 29,
+    slug: "market-explorer",
+    title: "Market Explorer",
+    category: "Component Architecture",
+    learn: "Learning Redux Toolkit",
+    skills: ["render prop", "HOC"],
+    img: marketExplorer,
+  },
+  {
+    id: 30,
+    slug: "count-forge",
+    title: "Count Forge",
+    category: "Component Architecture",
+    learn: "Learning the Compound Component Pattern",
+    skills: ["compound components", "context API", "component composition"],
+    img: countForge,
   },
 ];
